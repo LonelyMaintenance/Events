@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/CourseSchedule/CourseSchedule?WSDL" uri="wsdl/localhost_8080/CourseSchedule/CourseSchedule.wsdl"/>
+    <system systemId="http://localhost:8080/CourseSchedule/CourseSchedule?xsd=1" uri="wsdl/localhost_8080/CourseSchedule/CourseSchedule.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/BankService/BankService?WSDL" uri="wsdl/localhost_8080/BankService/BankService.wsdl"/>
+    <system systemId="http://localhost:8080/BankService/BankService?xsd=1" uri="wsdl/localhost_8080/BankService/BankService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/BankAccountService/BankAccountService?WSDL" uri="wsdl/localhost_8080/BankAccountService/BankAccountService.wsdl"/>
+    <system systemId="http://localhost:8080/BankAccountService/BankAccountService?xsd=1" uri="wsdl/localhost_8080/BankAccountService/BankAccountService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/BankCheck/BankCheck?WSDL" uri="wsdl/localhost_8080/BankCheck/BankCheck.wsdl"/>
+    <system systemId="http://localhost:8080/BankCheck/BankCheck?xsd=1" uri="wsdl/localhost_8080/BankCheck/BankCheck.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/GiftCardWebService/GiftCardWebService?WSDL" uri="wsdl/localhost_8080/GiftCardWebService/GiftCardWebService.wsdl"/>
+    <system systemId="http://localhost:8080/GiftCardWebService/GiftCardWebService?xsd=1" uri="wsdl/localhost_8080/GiftCardWebService/GiftCardWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CardPayments/CardPayments?WSDL" uri="wsdl/localhost_8080/CardPayments/CardPayments.wsdl"/>
+    <system systemId="http://localhost:8080/CardPayments/CardPayments?xsd=1" uri="wsdl/localhost_8080/CardPayments/CardPayments.xsd_1.xsd"/>
+</catalog>
