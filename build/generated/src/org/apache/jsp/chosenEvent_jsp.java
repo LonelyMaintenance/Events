@@ -3,12 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import web.EventList;
-import bean.EventsBean;
-import web.Event;
-import java.util.List;
+import java.util.ArrayList;
+import java.io.PrintWriter;
 
-public final class eventlist_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class chosenEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -50,72 +48,60 @@ public final class eventlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      bean.EventsBean event = null;
-      synchronized (_jspx_page_context) {
-        event = (bean.EventsBean) _jspx_page_context.getAttribute("event", PageContext.PAGE_SCOPE);
-        if (event == null){
-          event = new bean.EventsBean();
-          _jspx_page_context.setAttribute("event", event, PageContext.PAGE_SCOPE);
-        }
-      }
-      out.write("  \n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("         <link rel=\"stylesheet\" href=\"styles.css\">\n");
-      out.write("        <title>Events</title>\n");
+      out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <h1>Pick an event!</h1>\n");
-      out.write(" \n");
-      out.write("   \n");
-  
-    // <option value="1">1</option>
-   // <option value="2">2</option>
-   // <option value="3">3</option>
-    
-//int m=obj.cube(5);  
-//out.print("cube of 5 is "+m);
-EventsBean e = new EventsBean();
-List<EventList> list = event.getData();
+      out.write("                    <form method=\"post\" action=\"ChosenEventServlet\">\n");
+      out.write("\t\t<table>\n");
+      out.write("\t\t\t<tr>\n");
+      out.write("                            <td>Event</td>\n");
+      out.write("                    \n");
+      out.write("                      \n");
+      out.write("\n");
+      out.write("\t                            ");
+ 
+                            String id= request.getParameter("id");
+                            
+if(id!=null)
+{
+out.println("<h1>Chosen number at " + id + "</h1>");
+}   
+            /* TODO output your page here. You may use following sample code. */
 
-for(int i = 0; i < list.size(); i++){
-        out.println("<td>");
-        out.println("<span>");
-     out.println("<a href=\"chosenEvent.jsp?eventName="+(list.get(i).getEventName())+"&id="+list.get(i).getId()+"\">"+list.get(i).getEventName()+"</a>");
-        out.println("</span>");
-        out.println("</td><br>");
-}
-
-out.print("</option>");
-
-      out.write("  \n");
-      out.write(" \n");
-      out.write("  Amount of Tickets: <input type=\"text\" name=\"tickets\" value=\"1\" /><br>\n");
-      out.write("  ");
-
-      out.print(" User: <input type=\"text\" name=\"user\" value=\""+request.getAttribute("login")+"\">");
-      
+            
+             
+      out.write("\n");
+      out.write("      \n");
+      out.write("\n");
+      out.write("\t\t\t\t<td>Number of tickets:</td>\n");
+      out.write("\t\t\t\t<td><input name=\"tickets\" value=\"1\"/></td>\n");
+      out.write("\t\t\t</tr>\n");
+      out.write("\t\t\t\n");
+      out.write("\t\t\t\t<td><input type=\"submit\" value=\"Add\" /></td>\n");
+      out.write("                                \n");
       out.write("\n");
       out.write("\n");
-      out.write("  \n");
-      out.write("    ");
- out.println("<b>"+request.getAttribute("login") + "</b>"); 
+      out.write("     \n");
+      out.write("    \n");
+      out.write("\n");
+      out.write("\t\t</table>\n");
+      out.write("\t</form>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("    \n");
+      out.write("\n");
+      out.write("\n");
+      out.write("             \n");
+      out.write("\n");
+      out.write("       <a href=\"cartView.jsp\">View cart</a>\n");
       out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
-      out.write("\n");
-      out.write("    ");
-      out.write("\n");
-      out.write("  \n");
-      out.write("           \n");
-      out.write("     \n");
-      out.write("</body>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

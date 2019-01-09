@@ -21,9 +21,7 @@
     </head>
     <body>
         <h1>Pick an event!</h1>
-        <form action="EventServlet" method="POST">
-  <select name="item">
-   
+ 
    
 <%  
     // <option value="1">1</option>
@@ -36,20 +34,21 @@ EventsBean e = new EventsBean();
 List<EventList> list = event.getData();
 
 for(int i = 0; i < list.size(); i++){
-    out.print("<option value=\""+i+"\">");
-    out.print(list.get(i).getEventName());
-    out.print("</option>");
+        out.println("<td>");
+        out.println("<span>");
+     out.println("<a href=\"chosenEvent.jsp?eventName="+(list.get(i).getEventName())+"&id="+list.get(i).getId()+"\">"+list.get(i).getEventName()+"</a>");
+        out.println("</span>");
+        out.println("</td><br>");
 }
 
 out.print("</option>");
 %>  
-  </select>
+ 
   Amount of Tickets: <input type="text" name="tickets" value="1" /><br>
   <%
       out.print(" User: <input type=\"text\" name=\"user\" value=\""+request.getAttribute("login")+"\">");
       %>
-  <input type="submit" value="Submit">
-</form>
+
   
     <% out.println("<b>"+request.getAttribute("login") + "</b>"); %>
     </body>

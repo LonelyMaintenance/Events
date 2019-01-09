@@ -1,11 +1,10 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package web;
 
-import bean.LoginBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -18,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author nikolaj
+ * @author kat
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "ChosenEventServlet", urlPatterns = {"/ChosenEventServlet"})
+public class ChosenEventServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,28 +36,15 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String login = null;
-            login = request.getParameter("login");
-            String password = null;
-            password = request.getParameter("password");
-            boolean check = checkGivenPassword(login, password);
-            if ((login != null && !login.isEmpty()) && (password != null && !password.isEmpty()) && check == true) {
-                RequestDispatcher rd = request.getRequestDispatcher("eventlist.jsp");
-                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
-                // request.setAttribute("message", "Exchange rate ");
-                request.setAttribute("login", login);
-                request.setAttribute("message", "You are logged in");
-                rd.forward(request, response);
-            } else {
-                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-                request.setAttribute("message", "Please insert login and password");
-                request.setAttribute("login", login);
-                Cookie receiverCookie = new Cookie(("user"), login);
-                //setting cookie to expiry in 30 mins
-                receiverCookie.setMaxAge(30 * 60);
-                response.addCookie(receiverCookie);
-                rd.forward(request, response);
-            }
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ChosenEventServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ChosenEventServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -88,7 +74,24 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String n = request.getParameter("id");
+      String t = request.getParameter("tickets");
+
+                			Cookie eventCookie = new Cookie(("id"+n),n);
+			//setting cookie to expiry in 30 mins
+			eventCookie.setMaxAge(30*60);
+			response.addCookie(eventCookie);
+                        
+          			Cookie ticketCookie = new Cookie(("tickets"+n),t);
+			//setting cookie to expiry in 30 mins
+			ticketCookie.setMaxAge(30*60);
+			response.addCookie(ticketCookie);  
+      
+
+
+        RequestDispatcher rd = request.getRequestDispatcher("eventlist.jsp");
+        rd.forward(request, response);
+
     }
 
     /**
@@ -101,13 +104,4 @@ public class LoginServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private boolean checkGivenPassword(String email, String password) {
-
-        LoginBean lb = new LoginBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
-        lb.init();
-        boolean check = lb.checkPassword(email, password);
-        lb.closeConnection();
-
-        return check;
-    }
 }

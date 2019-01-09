@@ -9,18 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles.css">
         <title>Send question to service</title>
     </head>
     <body>
-          <form action="QuestionServlet" method="POST">
+        <form action="QuestionServlet" method="POST">
             Gmail username <input type="text" name="username" value="" /><br>
             Gmail password <input type="text" name="pass" value="" /><br>
             Your Question <input type="text" name="question" value="" /><br>
             Contact me on this email: <input type="text" name="email" value="" /><br>
             <input type="submit" value="Send" name="submit" />
         </form>
-                    <% out.println("<b>"+request.getAttribute("message") + "</b>"); %>
+        <% out.println("<b>" + request.getAttribute("message") + "</b>");%>
 
     </body>
 
