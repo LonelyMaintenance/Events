@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
             password = request.getParameter("password");
             boolean check = checkGivenPassword(login, password);
             if ((login != null && !login.isEmpty()) && (password != null && !password.isEmpty()) && check == true) {
-                RequestDispatcher rd = request.getRequestDispatcher("eventlist.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("customermenu.jsp");
                 // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
                 // request.setAttribute("message", "Exchange rate ");
                 request.setAttribute("login", login);

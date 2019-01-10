@@ -77,12 +77,7 @@ public final class eventlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        ");
 
-            // <option value="1">1</option>
-            // <option value="2">2</option>
-            // <option value="3">3</option>
 
-        //int m=obj.cube(5);  
-        //out.print("cube of 5 is "+m);
             EventsBean e = new EventsBean();
             List<EventList> list = event.getData();
 
@@ -107,7 +102,6 @@ public final class eventlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
-      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
