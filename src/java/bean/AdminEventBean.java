@@ -117,6 +117,31 @@ public class AdminEventBean {
         return eventList;
     }
 
+    public ArrayList<String> getPurchaseHistory(String email) throws SQLException {
+        ArrayList<String> ticketList = new ArrayList<>();
+
+        try {
+            this.stmt = con.createStatement();
+            ResultSet resultSet = stmt.executeQuery("SELECT event.date, event.eventName, event.price, ticket.user_email FROM event INNER JOIN ticket ON event.idEvent=ticket.event_idEvent WHERE user_email='"+email+"';");
+            String date = "test";
+            String eventName = "test";
+            String price = "test";
+
+            while (resultSet.next()) {
+                if (resultSet != null) {
+                    date = resultSet.getString(1);
+                    eventName = resultSet.getString(2);
+                    price = resultSet.getString(3);
+                    ticketList.add(String.format("Date: %s<br>Event: %s<br>Price: %s<br>", date, eventName,price));
+                   
+                }
+            }
+        } catch (SQLException ex) {
+            System.err.println(new java.util.Date() + " : " + ex.getMessage());
+        }
+
+        return ticketList;
+    }
     public void closeConnection() {
         try {
             stmt.close();

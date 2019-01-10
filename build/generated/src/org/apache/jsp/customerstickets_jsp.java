@@ -3,8 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.ArrayList;
+import bean.AdminEventBean;
 
-public final class newEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class customerstickets_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -44,26 +46,46 @@ public final class newEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"styles.css\">\n");
-      out.write("        <title>New Event</title>\n");
+      out.write("        <title>Ticket history</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <form action=\"NewEventServlet\" method=\"POST\">\n");
-      out.write("            Event name <input type=\"text\" name=\"eventName\" value=\"\" /><br>\n");
-      out.write("            Date <input type=\"text\" name=\"date\" value=\"\" /><br>\n");
-      out.write("            Location <input type=\"text\" name=\"location\" value=\"\" /><br>\n");
-      out.write("            Price <input type=\"text\" name=\"price\" value=\"\" /><br>\n");
-      out.write("            Number of seats  <input type=\"text\" name=\"seats\" value=\"\" /><br>\n");
-      out.write("            <input type=\"submit\" value=\"Login\" name=\"submit\" />\n");
+      out.write("        <h1>Every ticket you bought here!</h1>\n");
+      out.write("        ");
+
+            String email = null;
+              Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().contains("user")) {
+                        email = cookie.getValue();
+                                    if(email!=null){
+            AdminEventBean aeb = new AdminEventBean();
+            aeb.init();
+            ArrayList<String> tickets = aeb.getPurchaseHistory(email);
+            for(int i = 0; i < tickets.size(); i++){
+                out.println(tickets.get(i));
+                out.println("<br>");
+            }
+            aeb.closeConnection();
+            }
+
+                    }
+
+
+                }
+            }
+                       
+
+            
       out.write("\n");
-      out.write("        </form>\n");
-      out.write("\n");
+      out.write("            \n");
       out.write("    </body>\n");
-      out.write("\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
