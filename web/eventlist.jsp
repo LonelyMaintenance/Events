@@ -39,7 +39,7 @@
                 out.println("<span>");
                 out.println("<a href=\"chosenEvent.jsp?eventName=" + (list.get(i).getEventName()) + "&id=" + list.get(i).getId() + "&price="+(list.get(i).getPrice())+"\">" + list.get(i).getEventName() + "</a>");
                 out.println("</span>");
-                out.println("</td><br>");
+                out.println("</td><br><br>");
             }
 
             out.print("</option>");
@@ -48,7 +48,6 @@
 
 
 
-        <% out.println("<b>" + request.getAttribute("login") + "</b>");%>
         <a href="cartView.jsp">View cart</a><br>
         <a href="index.html">Main page</a><br>
         <a href="logout.jsp">Log out</a><br>

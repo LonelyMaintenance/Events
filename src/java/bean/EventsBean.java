@@ -52,19 +52,7 @@ public class EventsBean implements Serializable {
             //    Event e = new Event(eventList.get(i).getEventName(), String.format("%s description", eventList.get(i)));
             data.add(eventList.get(i));
         }
-        /*
-        data = new ArrayList<>();
-        Event e = new Event("item 1", "item 1 description");
-        data.add(e);
-        e = new Event("item 2", "item 2 description");
-        data.add(e);
-        e = new Event("item 3", "item 3 description");
-        data.add(e);
-        e = new Event("item 4", "item 4 description");
-        data.add(e);
-         */
-        //            AdminEventBean adb = new AdminEventBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
-
+        
     }
 
     public List<EventList> getData() {

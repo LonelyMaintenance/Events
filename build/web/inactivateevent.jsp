@@ -12,7 +12,7 @@
         <title>Inactivate event</title>
     </head>
     <body>
-        <h1>Event is no longer possible to attend</h1>
+        <h1>Cancel event</h1>
         <form action="InactivateEventServlet" method="POST">
             Event name <input type="text" name="eventName" value="" /><br>
             <input type="submit" value="Ok" name="submit" />

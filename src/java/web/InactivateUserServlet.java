@@ -5,8 +5,11 @@
  */
 package web;
 
+import bean.AdminEventBean;
+import bean.AdminUserBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -72,7 +75,17 @@ public class InactivateUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String email = null;
+
+        email = request.getParameter("email");
+
+        if (email != null && !email.isEmpty()) {
+            AdminUserBean aub = new AdminUserBean();
+            aub.init();
+            aub.cancelUserStatement(email);
+            RequestDispatcher rd = request.getRequestDispatcher("userinactivated.jsp");
+            rd.forward(request, response);
+        }
     }
 
     /**

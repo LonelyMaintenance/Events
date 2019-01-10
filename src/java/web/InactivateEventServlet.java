@@ -5,8 +5,10 @@
  */
 package web;
 
+import bean.AdminEventBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,15 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "InactivateEventServlet", urlPatterns = {"/InactivateEventServlet"})
 public class InactivateEventServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -72,7 +65,17 @@ public class InactivateEventServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            String eventName = null;
+        
+            eventName= request.getParameter("eventName");
+
+            if (eventName != null && !eventName.isEmpty()) { 
+                AdminEventBean aeb = new AdminEventBean();
+                aeb.init();
+                aeb.cancelEventStatement(eventName);
+                RequestDispatcher rd = request.getRequestDispatcher("eventinactivated.jsp");
+                rd.forward(request, response);
+            }
     }
 
     /**

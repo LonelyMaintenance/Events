@@ -14,7 +14,7 @@
     <body>
         <h1>Set user as no longer active</h1>
         <form action="InactivateUserServlet" method="POST">
-            Username <input type="text" name="username" value="" /><br>
+            Email <input type="text" name="email" value="" /><br>
             <input type="submit" value="Ok" name="submit" />
         </form>
     </body>

@@ -49,6 +49,17 @@ public class AdminUserBean {
         } catch (SQLException ex) {
         }
     }
+    
+        public void cancelUserStatement(String email) {
+        try {
+            this.stmt = (PreparedStatement) con.prepareStatement("UPDATE user SET isInactive=1 WHERE email=?;");
+            stmt.setString(1, email);
+            stmt.executeUpdate();
+            stmt.close();
+            con.close();
+        } catch (SQLException ex) {
+        }
+        }
 
     public void closeConnection() {
         try {

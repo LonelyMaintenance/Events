@@ -73,6 +73,19 @@ public class AdminEventBean {
         } catch (SQLException ex) {
         }
     }
+    
+    public void cancelEventStatement(String eventName) {
+        try {
+            this.preStmt = (PreparedStatement) con.prepareStatement("UPDATE event SET isCancelled=1 WHERE eventName=?;");
+            preStmt.setString(1, eventName);
+            preStmt.executeUpdate();
+            preStmt.close();
+            con.close();
+        } catch (SQLException ex) {
+        }
+    }
+
+    
 
     public ArrayList<EventList> getEventsStatement() throws SQLException {
         ArrayList<EventList> eventList = new ArrayList<>();
@@ -80,7 +93,7 @@ public class AdminEventBean {
 
         try {
             this.stmt = con.createStatement();
-            ResultSet resultSet = stmt.executeQuery("SELECT idEvent,eventName,price,availableSeats FROM event;");
+            ResultSet resultSet = stmt.executeQuery("SELECT idEvent,eventName,price,availableSeats,isCancelled FROM event where isCancelled=0;");
             String id = "test";
             String eventName = "test";
             String price = "test";
