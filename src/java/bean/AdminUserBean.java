@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package bean;
 
@@ -19,23 +19,23 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class AdminUserBean {
-        Connection con;
+
+    Connection con;
     PreparedStatement stmt;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
-    
     //In the real world, this method should have madtoe a call to database objects to query data
-   
-    public void init(){
-         try {    
+    public void init() {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             this.con = DriverManager.getConnection("jdbc:mysql://localhost/eventDb?autoReconnect=true&useSSL=false", "root", "root");
         } catch (ClassNotFoundException ex) {
         } catch (SQLException ex) {
         }
     }
-    public void insertStatement(String firstName, String lastName, String email, String password, boolean isAdmin, boolean isInactive){
+
+    public void insertStatement(String firstName, String lastName, String email, String password, boolean isAdmin, boolean isInactive) {
         try {
             this.stmt = (PreparedStatement) con.prepareStatement("INSERT INTO user(firstName, lastName, email, password, isAdmin, isInactive)VALUES(?, ?, ?, ?, ?, ?);");
             stmt.setString(1, firstName);
@@ -49,8 +49,8 @@ public class AdminUserBean {
         } catch (SQLException ex) {
         }
     }
-    
-    public void closeConnection(){
+
+    public void closeConnection() {
         try {
             stmt.close();
             con.close();

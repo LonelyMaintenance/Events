@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package web;
 
@@ -39,32 +39,32 @@ public class RegisterAdminServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String firstName = null;
-            String lastName = null; 
-            String email = null; 
+            String lastName = null;
+            String email = null;
             String password = null;
-            
+
             firstName = request.getParameter("firstName");
             lastName = request.getParameter("lastName");
             email = request.getParameter("email");
             password = request.getParameter("password");
-            
-            if((email!=null && !email.isEmpty())&&(password!=null && !password.isEmpty())){
-             // RequestDispatcher rd = request.getRequestDispatcher("touristbooking.jsp");
-            // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
-           // request.setAttribute("message", "Exchange rate ");
-          //  request.setAttribute("login", login);
-           // rd.forward(request, response);           callAdminCreateEventBean(eventName, date, location, price, seats);
 
-           callAdminCreateAdminBean(firstName, lastName, email, password);
-                                       RequestDispatcher rd = request.getRequestDispatcher("registerAdmin.jsp");
-            request.setAttribute("message", "New admin is added");
-            //request.setAttribute("login", login);
-            rd.forward(request, response);
-        }else{
-                              RequestDispatcher rd = request.getRequestDispatcher("registerAdmin.jsp");
-            request.setAttribute("message", "Please insert all values");
-            //request.setAttribute("login", login);
-            rd.forward(request, response);
+            if ((email != null && !email.isEmpty()) && (password != null && !password.isEmpty())) {
+                // RequestDispatcher rd = request.getRequestDispatcher("touristbooking.jsp");
+                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
+                // request.setAttribute("message", "Exchange rate ");
+                //  request.setAttribute("login", login);
+                // rd.forward(request, response);           callAdminCreateEventBean(eventName, date, location, price, seats);
+
+                callAdminCreateAdminBean(firstName, lastName, email, password);
+                RequestDispatcher rd = request.getRequestDispatcher("registerAdmin.jsp");
+                request.setAttribute("message", "New admin is added");
+                //request.setAttribute("login", login);
+                rd.forward(request, response);
+            } else {
+                RequestDispatcher rd = request.getRequestDispatcher("registerAdmin.jsp");
+                request.setAttribute("message", "Please insert all values");
+                //request.setAttribute("login", login);
+                rd.forward(request, response);
             }
         }
     }
@@ -107,10 +107,10 @@ public class RegisterAdminServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-   
-    private void callAdminCreateAdminBean(String firstName, String lastName, String email, String password){
+
+    private void callAdminCreateAdminBean(String firstName, String lastName, String email, String password) {
         AdminUserBean adb = new AdminUserBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
-        adb.init();  
+        adb.init();
         adb.insertStatement(firstName, lastName, email, password, true, false);
         adb.closeConnection();
     }

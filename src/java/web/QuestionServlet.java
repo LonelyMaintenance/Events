@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package web;
 
@@ -36,33 +36,32 @@ public class QuestionServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
-            String question=null;
+
+            String question = null;
             question = request.getParameter("question");
-            String email=null; 
+            String email = null;
             email = request.getParameter("email");
-               String username=null; 
+            String username = null;
             username = request.getParameter("username");
-               String pass=null; 
+            String pass = null;
             pass = request.getParameter("pass");
-            
-          
-            if((question!=null && !question.isEmpty())&&(email!=null && !email.isEmpty())){
-              RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-              MailService ms = new MailService();
-              ms.setUSER_NAME(username);
-              ms.setPASSWORD(pass);
-              ms.setSender(email);
-              ms.setBody(question);
-              ms.sendReceipt();
-                    
-            request.setAttribute("message", "Your question sent");
-            rd.forward(request, response);
-        }else{
-                              RequestDispatcher rd = request.getRequestDispatcher("contactservice.jsp");
-            request.setAttribute("message", "Please insert question and email");
-           
-            rd.forward(request, response);
+
+            if ((question != null && !question.isEmpty()) && (email != null && !email.isEmpty())) {
+                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+                MailService ms = new MailService();
+                ms.setUSER_NAME(username);
+                ms.setPASSWORD(pass);
+                ms.setSender(email);
+                ms.setBody(question);
+                ms.sendReceipt();
+
+                request.setAttribute("message", "Your question sent");
+                rd.forward(request, response);
+            } else {
+                RequestDispatcher rd = request.getRequestDispatcher("contactservice.jsp");
+                request.setAttribute("message", "Please insert question and email");
+
+                rd.forward(request, response);
             }
         }
     }
@@ -105,13 +104,14 @@ public class QuestionServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-      private boolean checkGivenPassword(String email, String password){
-      
+
+    private boolean checkGivenPassword(String email, String password) {
+
         LoginBean lb = new LoginBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
-        lb.init();  
+        lb.init();
         boolean check = lb.checkPassword(email, password);
         lb.closeConnection();
-        
+
         return check;
     }
 }

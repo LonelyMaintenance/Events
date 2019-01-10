@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package web;
 
@@ -21,23 +21,23 @@ import java.util.logging.Logger;
  * @author nikolaj
  */
 public class UserAdmin {
+
     Connection con;
     PreparedStatement stmt;
     Scanner s;
 
-   
-    public static void main(String[] args){
-     UserAdmin ea = new UserAdmin();
-     
-     //ea.callAdminCreateCustomerBean();
-     //ea.callAdminCreateAdminBean();
-     ea.checkGivenPassword("jonas@gmail.com", "1234");
+    public static void main(String[] args) {
+        UserAdmin ea = new UserAdmin();
+
+        //ea.callAdminCreateCustomerBean();
+        //ea.callAdminCreateAdminBean();
+        ea.checkGivenPassword("jonas@gmail.com", "1234");
     }
-    
-   private void callAdminCreateCustomerBean(){
+
+    private void callAdminCreateCustomerBean() {
         s = new Scanner(System.in);
         AdminUserBean adb = new AdminUserBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
-        adb.init();  
+        adb.init();
         System.out.println("Enter first name");
         String firstName = s.nextLine();
         System.out.println("Enter last name");
@@ -50,10 +50,11 @@ public class UserAdmin {
         adb.insertStatement(firstName, lastName, email, password, false, false);
         adb.closeConnection();
     }
-   private void callAdminCreateAdminBean(){
+
+    private void callAdminCreateAdminBean() {
         s = new Scanner(System.in);
         AdminUserBean adb = new AdminUserBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
-        adb.init();  
+        adb.init();
         System.out.println("Enter first name");
         String firstName = s.nextLine();
         System.out.println("Enter last name");
@@ -66,15 +67,15 @@ public class UserAdmin {
         adb.insertStatement(firstName, lastName, email, password, true, false);
         adb.closeConnection();
     }
-   
-      private void checkGivenPassword(String email, String password){
-      
+
+    private void checkGivenPassword(String email, String password) {
+
         LoginBean lb = new LoginBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
-        lb.init();  
+        lb.init();
         boolean check = lb.checkPassword(email, password);
-        if(check==true){
+        if (check == true) {
             System.out.println("You are logged in");
-        }else{
+        } else {
             System.out.println("Wrong password!");
         }
         lb.closeConnection();

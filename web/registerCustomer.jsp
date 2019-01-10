@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles.css">
         <title>Register Customer</title>
     </head>
     <body>
-          <form action="RegisterCustomerServlet" method="POST">            
+        <form action="RegisterCustomerServlet" method="POST">            
             First name <input type="text" name="firstName" value="" /><br>
             Last name <input type="text" name="lastName" value="" /><br>
             Email <input type="text" name="email" value="" /><br>
@@ -21,7 +21,7 @@
             <input type="submit" value="Register" name="submit" />
 
         </form>
-                    <% out.println("<b>"+request.getAttribute("message") + "</b>"); %>
+        <% out.println("<b>" + request.getAttribute("message") + "</b>");%>
 
     </body>
 

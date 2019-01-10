@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles.css">
         <title>New Event</title>
     </head>
     <body>
-          <form action="NewEventServlet" method="POST">
+        <form action="NewEventServlet" method="POST">
             Event name <input type="text" name="eventName" value="" /><br>
             Date <input type="text" name="date" value="" /><br>
             Location <input type="text" name="location" value="" /><br>
@@ -22,7 +22,6 @@
             <input type="submit" value="Login" name="submit" />
 
         </form>
-                    <% out.println("<b>"+request.getAttribute("message") + "</b>"); %>
 
     </body>
 

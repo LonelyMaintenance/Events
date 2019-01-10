@@ -48,15 +48,16 @@ public class LoginServlet extends HttpServlet {
                 // request.setAttribute("message", "Exchange rate ");
                 request.setAttribute("login", login);
                 request.setAttribute("message", "You are logged in");
+                Cookie loginCookie = new Cookie(("user"), login);
+                //setting cookie to expiry in 30 mins
+                loginCookie.setMaxAge(30 * 60);
+                response.addCookie(loginCookie);
+
                 rd.forward(request, response);
             } else {
                 RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                 request.setAttribute("message", "Please insert login and password");
                 request.setAttribute("login", login);
-                Cookie receiverCookie = new Cookie(("user"), login);
-                //setting cookie to expiry in 30 mins
-                receiverCookie.setMaxAge(30 * 60);
-                response.addCookie(receiverCookie);
                 rd.forward(request, response);
             }
         }

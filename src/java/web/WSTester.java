@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package web;
 
@@ -19,15 +19,12 @@ public class WSTester {
      */
     public static void main(String[] args) throws SQLException_Exception, SQLException {
         // TODO code application logic here
-       // System.out.println("Course days " + getWeekDays("DA374A"));
+        // System.out.println("Course days " + getWeekDays("DA374A"));
         System.out.println(getAccountValue("nikolaj.mansson@gmail.com"));
-      //  System.out.println(pay1("nikolaj.mansson@gmail.com", "100"));
-       // System.out.println(pay("nikolaj.mansson@gmail.com", "100"));
+        //  System.out.println(pay1("nikolaj.mansson@gmail.com", "100"));
+        // System.out.println(pay("nikolaj.mansson@gmail.com", "100"));
 
-                
-        
     }
-    
 
     private static float getAccountValue(java.lang.String name) {
         gc.GiftCardWebService_Service service = new gc.GiftCardWebService_Service();
@@ -41,12 +38,4 @@ public class WSTester {
         return port.pay(arg0, arg1);
     }
 
- 
-    
-    
-    
-    
-    
-    
-    
 }

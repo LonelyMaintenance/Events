@@ -16,46 +16,48 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link rel="stylesheet" href="styles.css">
+        
+        <link rel="stylesheet" href="styles.css">
         <title>Events</title>
     </head>
     <body>
         <h1>Pick an event!</h1>
- 
-   
-<%  
-    // <option value="1">1</option>
-   // <option value="2">2</option>
-   // <option value="3">3</option>
-    
-//int m=obj.cube(5);  
-//out.print("cube of 5 is "+m);
-EventsBean e = new EventsBean();
-List<EventList> list = event.getData();
 
-for(int i = 0; i < list.size(); i++){
-        out.println("<td>");
-        out.println("<span>");
-     out.println("<a href=\"chosenEvent.jsp?eventName="+(list.get(i).getEventName())+"&id="+list.get(i).getId()+"\">"+list.get(i).getEventName()+"</a>");
-        out.println("</span>");
-        out.println("</td><br>");
-}
 
-out.print("</option>");
-%>  
- 
-  Amount of Tickets: <input type="text" name="tickets" value="1" /><br>
-  <%
-      out.print(" User: <input type=\"text\" name=\"user\" value=\""+request.getAttribute("login")+"\">");
-      %>
+        <%
+            // <option value="1">1</option>
+            // <option value="2">2</option>
+            // <option value="3">3</option>
 
-  
-    <% out.println("<b>"+request.getAttribute("login") + "</b>"); %>
+        //int m=obj.cube(5);  
+        //out.print("cube of 5 is "+m);
+            EventsBean e = new EventsBean();
+            List<EventList> list = event.getData();
+
+            for (int i = 0; i < list.size(); i++) {
+                out.println("<td>");
+                out.println("<span>");
+                out.println("<a href=\"chosenEvent.jsp?eventName=" + (list.get(i).getEventName()) + "&id=" + list.get(i).getId() + "&price="+(list.get(i).getPrice())+"\">" + list.get(i).getEventName() + "</a>");
+                out.println("</span>");
+                out.println("</td><br>");
+            }
+
+            out.print("</option>");
+        %>  
+
+
+
+
+        <% out.println("<b>" + request.getAttribute("login") + "</b>");%>
+        <a href="cartView.jsp">View cart</a><br>
+        <a href="index.html">Main page</a><br>
+        <a href="logout.jsp">Log out</a><br>
+
     </body>
 </html>
 
-    <%-- To display selected value from dropdown list. --%>
-  
-           
-     
+<%-- To display selected value from dropdown list. --%>
+
+
+
 </body>

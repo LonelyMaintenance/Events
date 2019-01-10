@@ -9,6 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles.css">
+
         <title>Empty cart</title>
     </head>
     <body>
@@ -25,11 +27,27 @@
 
                     }
                     if (cookie.getName().contains("tickets")) {
-
+                        
                         Cookie ticketCookie = new Cookie(cookie.getName(), "");
                         //setting cookie to expiry in 30 mins
                         ticketCookie.setMaxAge(0);
                         response.addCookie(ticketCookie);
+
+                    }
+                        if (cookie.getName().contains("eventName")) {
+
+                        Cookie eventNameCookie = new Cookie(cookie.getName(), "");
+                        //setting cookie to expiry in 30 mins
+                        eventNameCookie.setMaxAge(0);
+                        response.addCookie(eventNameCookie);
+
+                    }
+                    if (cookie.getName().contains("price")) {
+
+                        Cookie priceCookie = new Cookie(cookie.getName(), "");
+                        //setting cookie to expiry in 30 mins
+                        priceCookie.setMaxAge(0);
+                        response.addCookie(priceCookie);
 
                     }
                 }

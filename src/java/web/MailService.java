@@ -1,4 +1,5 @@
 package web;
+
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -18,7 +19,7 @@ public class MailService {
     public void setSender(String sender) {
         this.sender = sender;
     }
-    
+
     public String getBody() {
         return body;
     }
@@ -26,7 +27,6 @@ public class MailService {
     public void setBody(String body) {
         this.body = body;
     }
-
 
     public String getUSER_NAME() {
         return USER_NAME;
@@ -43,15 +43,12 @@ public class MailService {
     public void setPASSWORD(String PASSWORD) {
         this.PASSWORD = PASSWORD;
     }
-    
-    
 
     public void sendReceipt() {
         String from = USER_NAME;
         String pass = PASSWORD;
-        String[] to = { RECIPIENT }; // list of recipient email addresses
+        String[] to = {RECIPIENT}; // list of recipient email addresses
         String subject = String.format("Question from %s", sender);
-        
 
         sendFromGMail(from, pass, to, subject, body);
     }
@@ -74,11 +71,11 @@ public class MailService {
             InternetAddress[] toAddress = new InternetAddress[to.length];
 
             // To get the array of addresses
-            for( int i = 0; i < to.length; i++ ) {
+            for (int i = 0; i < to.length; i++) {
                 toAddress[i] = new InternetAddress(to[i]);
             }
 
-            for( int i = 0; i < toAddress.length; i++) {
+            for (int i = 0; i < toAddress.length; i++) {
                 message.addRecipient(Message.RecipientType.TO, toAddress[i]);
             }
 
@@ -88,11 +85,9 @@ public class MailService {
             transport.connect(host, from, pass);
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-        }
-        catch (AddressException ae) {
+        } catch (AddressException ae) {
             ae.printStackTrace();
-        }
-        catch (MessagingException me) {
+        } catch (MessagingException me) {
             me.printStackTrace();
         }
     }

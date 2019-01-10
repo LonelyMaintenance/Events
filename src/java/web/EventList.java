@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package web;
 
@@ -10,8 +10,9 @@ package web;
  * @author nikolaj
  */
 public class EventList {
+
     String id;
-    
+
     String eventName;
     String price;
     String availableSeats;
@@ -31,7 +32,6 @@ public class EventList {
         this.id = id;
     }
 
-    
     public String getEventName() {
         return eventName;
     }
@@ -55,6 +55,5 @@ public class EventList {
     public void setAvailableSeats(String availableSeats) {
         this.availableSeats = availableSeats;
     }
-    
-    
+
 }

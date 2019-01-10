@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package web;
 
@@ -38,33 +38,33 @@ public class NewEventServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String eventName = null;
-            String date = null; 
-            String location = null; 
-            String price = null; 
+            String date = null;
+            String location = null;
+            String price = null;
             String seats = null;
-            
+
             eventName = request.getParameter("eventName");
             date = request.getParameter("date");
             location = request.getParameter("location");
             price = request.getParameter("price");
             seats = request.getParameter("seats");
-            
-            if((eventName!=null && !eventName.isEmpty())&&(date!=null && !date.isEmpty())){
-             // RequestDispatcher rd = request.getRequestDispatcher("touristbooking.jsp");
-            // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
-           // request.setAttribute("message", "Exchange rate ");
-          //  request.setAttribute("login", login);
-           // rd.forward(request, response);
-           callAdminCreateEventBean(eventName, date, location, price, seats);
-                                       RequestDispatcher rd = request.getRequestDispatcher("newEvent.jsp");
-            request.setAttribute("message", "New event added to database");
-            //request.setAttribute("login", login);
-            rd.forward(request, response);
-        }else{
-                              RequestDispatcher rd = request.getRequestDispatcher("newEvent.jsp");
-            request.setAttribute("message", "Please insert all values");
-            //request.setAttribute("login", login);
-            rd.forward(request, response);
+
+            if ((eventName != null && !eventName.isEmpty()) && (date != null && !date.isEmpty())) {
+                // RequestDispatcher rd = request.getRequestDispatcher("touristbooking.jsp");
+                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
+                // request.setAttribute("message", "Exchange rate ");
+                //  request.setAttribute("login", login);
+                // rd.forward(request, response);
+                callAdminCreateEventBean(eventName, date, location, price, seats);
+                RequestDispatcher rd = request.getRequestDispatcher("newEvent.jsp");
+                request.setAttribute("message", "New event added to database");
+                //request.setAttribute("login", login);
+                rd.forward(request, response);
+            } else {
+                RequestDispatcher rd = request.getRequestDispatcher("newEvent.jsp");
+                request.setAttribute("message", "Please insert all values");
+                //request.setAttribute("login", login);
+                rd.forward(request, response);
             }
         }
     }
@@ -107,9 +107,10 @@ public class NewEventServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-   private void callAdminCreateEventBean(String eventName, String date, String location, String price, String seats){
+
+    private void callAdminCreateEventBean(String eventName, String date, String location, String price, String seats) {
         AdminEventBean adb = new AdminEventBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
-        adb.init();  
+        adb.init();
         adb.insertStatement(eventName, date, location, Float.valueOf(price), Integer.valueOf(seats));
         //adb.closeConnection();
     }

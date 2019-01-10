@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package web;
 
@@ -39,7 +39,7 @@ public class ChosenEventServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ChosenEventServlet</title>");            
+            out.println("<title>Servlet ChosenEventServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ChosenEventServlet at " + request.getContextPath() + "</h1>");
@@ -74,21 +74,31 @@ public class ChosenEventServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String n = request.getParameter("id");
-      String t = request.getParameter("tickets");
+        String i = request.getParameter("id");
+        String t = request.getParameter("tickets");
+        String e = request.getParameter("eventName");
+        String p = request.getParameter("price");
 
-                			Cookie eventCookie = new Cookie(("id"+n),n);
-			//setting cookie to expiry in 30 mins
-			eventCookie.setMaxAge(30*60);
-			response.addCookie(eventCookie);
-                        
-          			Cookie ticketCookie = new Cookie(("tickets"+n),t);
-			//setting cookie to expiry in 30 mins
-			ticketCookie.setMaxAge(30*60);
-			response.addCookie(ticketCookie);  
-      
+        Cookie eventCookie = new Cookie(("id" + i), i);
+        //setting cookie to expiry in 30 mins
+        eventCookie.setMaxAge(30 * 60);
+        response.addCookie(eventCookie);
 
+        Cookie ticketCookie = new Cookie(("tickets" + i), t);
+        //setting cookie to expiry in 30 mins
+        ticketCookie.setMaxAge(30 * 60);
+        response.addCookie(ticketCookie);
 
+        Cookie eventNameCookie = new Cookie(("eventName" + i), e);
+        //setting cookie to expiry in 30 mins
+        eventNameCookie.setMaxAge(30 * 60);
+        response.addCookie(eventNameCookie);
+
+        Cookie priceCookie = new Cookie(("price" + i), p);
+        //setting cookie to expiry in 30 mins
+        priceCookie.setMaxAge(30 * 60);
+        response.addCookie(priceCookie);
+                
         RequestDispatcher rd = request.getRequestDispatcher("eventlist.jsp");
         rd.forward(request, response);
 
