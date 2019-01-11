@@ -42,8 +42,21 @@ public class LoginServlet extends HttpServlet {
             String password = null;
             password = request.getParameter("password");
             boolean check = checkGivenPassword(login, password);
-            if ((login != null && !login.isEmpty()) && (password != null && !password.isEmpty()) && check == true) {
+            boolean admin = checkIfAdmin(login);
+            if ((login != null && !login.isEmpty()) && (password != null && !password.isEmpty()) && check == true && admin == false) {
                 RequestDispatcher rd = request.getRequestDispatcher("customermenu.jsp");
+                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
+                // request.setAttribute("message", "Exchange rate ");
+                request.setAttribute("login", login);
+                request.setAttribute("message", "You are logged in");
+                Cookie loginCookie = new Cookie(("user"), login);
+                //setting cookie to expiry in 30 mins
+                loginCookie.setMaxAge(30 * 60);
+                response.addCookie(loginCookie);
+
+                rd.forward(request, response);
+            } else if((login != null && !login.isEmpty()) && (password != null && !password.isEmpty()) && check == true && admin == true){
+                                RequestDispatcher rd = request.getRequestDispatcher("adminmenu.jsp");
                 // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
                 // request.setAttribute("message", "Exchange rate ");
                 request.setAttribute("login", login);
@@ -110,5 +123,15 @@ public class LoginServlet extends HttpServlet {
         lb.closeConnection();
 
         return check;
+    }
+    
+        private boolean checkIfAdmin(String email) {
+
+        LoginBean lb = new LoginBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        lb.init();
+        boolean admin = lb.checkIfAdmin(email);
+        lb.closeConnection();
+
+        return admin;
     }
 }

@@ -87,9 +87,9 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
         }
             
       out.write("\n");
-      out.write("        <a href=\"index.html\">Main page</a><br>\n");
-      out.write("        <a href=\"login.jsp\">Login page</a><br>\n");
-      out.write("\n");
+      out.write("    <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
+      out.write("        <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
+      out.write("    </footer>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

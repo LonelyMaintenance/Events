@@ -61,6 +61,7 @@ public final class cartView_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"w3-bar w3-red w3-card w3-left-align w3-large\">\n");
       out.write("            <a class=\"w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red\" href=\"javascript:void(0);\" onclick=\"myFunction()\" title=\"Toggle Navigation Menu\"><i class=\"fa fa-bars\"></i></a>\n");
       out.write("            <a href=\"logout.jsp\" class=\"w3-bar-item w3-button w3-right w3-padding-large w3-white\">Log out</a>\n");
+      out.write("        <a href=\"customermenu.jsp\" class=\"w3-bar-item w3-button w3-right w3-hide-small w3-padding-large w3-hover-white\">Customer Menu</a>\n");
       out.write("       ");
       out.write("\n");
       out.write("        </div>\n");
@@ -100,7 +101,9 @@ public final class cartView_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </form>\n");
       out.write("            \n");
       out.write("        <a href=\"emptyCart.jsp\">Empty cart</a>\n");
-      out.write("\n");
+      out.write("    <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
+      out.write("        <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
+      out.write("    </footer>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

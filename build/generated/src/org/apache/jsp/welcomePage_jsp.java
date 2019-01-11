@@ -75,7 +75,7 @@ public final class welcomePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <h1 class=\"w3-margin w3-jumbo\">Welcome to Events.com!</h1>\n");
       out.write("        </header>\n");
       out.write("    <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
-      out.write("        <a href=\"adminlogin.jsp\">Admin login</a>\n");
+      out.write("        <a href=\"contactservice.jsp\">Contacts us</a>\n");
       out.write("\n");
       out.write("        <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
       out.write("    </footer>\n");

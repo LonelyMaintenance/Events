@@ -58,8 +58,7 @@
 
 
         <a href="cartView.jsp">View cart</a><br>
-        <a href="index.html">Main page</a><br>
-        <a href="logout.jsp">Log out</a><br>
+
     <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </footer>
