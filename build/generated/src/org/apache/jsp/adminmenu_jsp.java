@@ -53,7 +53,6 @@ public final class adminmenu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Montserrat\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
       out.write("        <title>Admin menu</title>\n");
-      out.write("                <link rel=\"stylesheet\" href=\"styles.css\">\n");
       out.write("\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
@@ -67,7 +66,6 @@ public final class adminmenu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </div>\n");
       out.write("        <header class=\"w3-container w3-red w3-center\" style=\"padding:128px 16px\">\n");
       out.write("            <h1 class=\"w3-margin w3-jumbo\">Admin menu</h1>\n");
-      out.write("        </header>\n");
       out.write("    \n");
       out.write("        <a href=\"newEvent.jsp\">Add new event</a><br>\n");
       out.write("\n");
@@ -76,7 +74,7 @@ public final class adminmenu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <a href=\"inactivateevent.jsp\">Cancel event</a><br>\n");
       out.write("\n");
       out.write("        <a href=\"inactiveateuser.jsp\">Unregister user</a><br>\n");
-      out.write("\n");
+      out.write("        </header>\n");
       out.write("        \n");
       out.write("        \n");
       out.write("            <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");

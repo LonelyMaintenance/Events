@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class registerAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -48,39 +48,50 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\"/>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lato\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Montserrat\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\"\n");
-      out.write("        <title>Login</title>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
+      out.write("        <style>\n");
+      out.write("            body,h1,h2,h3,h4,h5,h6 {font-family: \"Lato\", sans-serif}\n");
+      out.write("            .w3-bar,h1,button {font-family: \"Montserrat\", sans-serif}\n");
+      out.write("            .fa-anchor,.fa-coffee {font-size:200px}\n");
+      out.write("        </style>\n");
+      out.write("        <title>Register Admin</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("                <div class=\"w3-top\">\n");
+      out.write("                        <div class=\"w3-top\">\n");
       out.write("        <div class=\"w3-bar w3-red w3-card w3-left-align w3-large\">\n");
       out.write("            <a class=\"w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red\" href=\"javascript:void(0);\" onclick=\"myFunction()\" title=\"Toggle Navigation Menu\"><i class=\"fa fa-bars\"></i></a>\n");
-      out.write("            <a href=\"welcomePage.jsp\" class=\"w3-bar-item w3-button w3-right w3-padding-large w3-white\">Main</a>\n");
+      out.write("            <a href=\"logout.jsp\" class=\"w3-bar-item w3-button w3-right w3-hide-small w3-padding-large w3-white\">Log out</a>\n");
+      out.write("            <a href=\"adminmenu.jsp\" class=\"w3-bar-item w3-button w3-right w3-hide-small w3-padding-large w3-hover-white\">Admin Menu</a>\n");
+      out.write("\n");
       out.write("       ");
       out.write("\n");
       out.write("        </div>\n");
       out.write("    </div>\n");
       out.write("        <header class=\"w3-container w3-red w3-center\" style=\"padding:128px 16px\">\n");
-      out.write("            <h1 class=\"w3-margin w3-jumbo\">Login</h1>\n");
-      out.write("        \n");
+      out.write("            <h1 class=\"w3-margin w3-jumbo\">Register Admin Account</h1>\n");
+      out.write("        <form action=\"RegisterAdminServlet\" method=\"POST\">            \n");
+      out.write("            <label>First name</label><br>\n");
+      out.write("            <input type=\"text\" name=\"firstName\" value=\"\" /><br>\n");
+      out.write("            <label>Last name</label><br>\n");
+      out.write("            <input type=\"text\" name=\"lastName\" value=\"\" /><br>\n");
+      out.write("            <label>Email</label><br>\n");
+      out.write("            <input type=\"text\" name=\"email\" value=\"\" /><br>\n");
+      out.write("            <label>Password</label><br>\n");
+      out.write("            <input type=\"text\" name=\"password\" value=\"\" /><br>\n");
+      out.write("            <input type=\"submit\" value=\"Register\" name=\"submit\" />\n");
       out.write("\n");
-      out.write("        <form action=\"LoginServlet\" method=\"POST\">\n");
-      out.write("            Login<input type=\"text\" name=\"login\" value=\"\" /><br>\n");
-      out.write("            Password <input type=\"text\" name=\"password\" value=\"\" /><br>\n");
-      out.write("            <input type=\"submit\" value=\"Login\" name=\"submit\" />\n");
       out.write("        </form>\n");
-      out.write("        ");
- out.println("<b>" + request.getAttribute("message") + "</b>");
+      out.write("            ");
+ //out.println("<b>" + request.getAttribute("message") + "</b>");
       out.write("\n");
       out.write("        </header>\n");
-      out.write("    <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
-      out.write("        <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
-      out.write("    </footer>\n");
+      out.write("        <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
+      out.write("            <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
+      out.write("        </footer>\n");
       out.write("    </body>\n");
-      out.write("\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

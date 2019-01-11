@@ -71,7 +71,6 @@ public final class eventlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lato\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Montserrat\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"styles.css\">\n");
       out.write("        <title>Events</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
@@ -85,7 +84,6 @@ public final class eventlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </div>\n");
       out.write("        <header class=\"w3-container w3-red w3-center\" style=\"padding:128px 16px\">\n");
       out.write("            <h1 class=\"w3-margin w3-jumbo\">Pick an event!</h1>\n");
-      out.write("        </header>\n");
       out.write("\n");
       out.write("        ");
 
@@ -109,8 +107,7 @@ public final class eventlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("        <a href=\"cartView.jsp\">View cart</a><br>\n");
-      out.write("        <a href=\"index.html\">Main page</a><br>\n");
-      out.write("        <a href=\"logout.jsp\">Log out</a><br>\n");
+      out.write("</header>\n");
       out.write("    <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
       out.write("        <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
       out.write("    </footer>\n");

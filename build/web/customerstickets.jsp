@@ -1,7 +1,7 @@
 <%-- 
     Document   : customerstickets
     Created on : Jan 10, 2019, 4:18:09 PM
-    Author     : nikolaj
+    Author     : nikolaj, Victor
 --%>
 
 <%@page import="java.util.ArrayList"%>
@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                        <link rel="stylesheet" href="styles.css">
 
         <title>Ticket history</title>
     </head>
@@ -34,7 +33,6 @@
     </div>
         <header class="w3-container w3-red w3-center" style="padding:128px 16px">
             <h1 class="w3-margin w3-jumbo">Every ticket you bought here!</h1>
-        </header>
     
         <%
             String email = null;
@@ -62,6 +60,7 @@
                        
 
             %>
+            </header>
                 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </footer>

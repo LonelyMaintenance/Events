@@ -48,7 +48,6 @@ public final class customermenu_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("                        <link rel=\"stylesheet\" href=\"styles.css\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\"/>\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lato\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Montserrat\">\n");
@@ -66,12 +65,13 @@ public final class customermenu_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("    </div>\n");
       out.write("        <header class=\"w3-container w3-red w3-center\" style=\"padding:128px 16px\">\n");
       out.write("            <h1 class=\"w3-margin w3-jumbo\">Customer Menu</h1>\n");
-      out.write("        </header>\n");
+      out.write("        \n");
       out.write("    \n");
       out.write("        <a href=\"customerstickets.jsp\">The tickets you've bought</a><br>\n");
-      out.write("        <a href=\"eventlist.jsp\">View events coming up</a><br>\n");
+      out.write("        <a href=\"eventlist.jsp\">Buy a new ticket</a><br>\n");
       out.write("        <a href=\"logout.jsp\">Log out page</a><br>        \n");
-      out.write("        <a href=\"index.html\">Main page</a><br\n");
+      out.write("        <a href=\"index.html\">Main page</a><br>\n");
+      out.write("        </header>\n");
       out.write("                <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
       out.write("        <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
       out.write("    </footer>\n");

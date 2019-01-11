@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class inactiveateuser_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class emptyCart_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -57,27 +57,64 @@ public final class inactiveateuser_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("            .w3-bar,h1,button {font-family: \"Montserrat\", sans-serif}\n");
       out.write("            .fa-anchor,.fa-coffee {font-size:200px}\n");
       out.write("        </style>\n");
-      out.write("        <title>Inactivate User</title>\n");
+      out.write("        <title>Empty cart</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("                <div class=\"w3-top\">\n");
+      out.write("                      <div class=\"w3-top\">\n");
       out.write("        <div class=\"w3-bar w3-red w3-card w3-left-align w3-large\">\n");
       out.write("            <a class=\"w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red\" href=\"javascript:void(0);\" onclick=\"myFunction()\" title=\"Toggle Navigation Menu\"><i class=\"fa fa-bars\"></i></a>\n");
       out.write("            <a href=\"logout.jsp\" class=\"w3-bar-item w3-button w3-right w3-padding-large w3-white\">Log out</a>\n");
-      out.write("                    <a href=\"adminmenu.jsp\" class=\"w3-bar-item w3-button w3-right w3-hide-small w3-padding-large w3-hover-white\">Admin Menu</a>\n");
+      out.write("                    <a href=\"customermenu.jsp\" class=\"w3-bar-item w3-button w3-right w3-hide-small w3-padding-large w3-hover-white\">Customer Menu</a>\n");
       out.write("\n");
       out.write("       ");
       out.write("\n");
       out.write("        </div>\n");
       out.write("    </div>\n");
       out.write("        <header class=\"w3-container w3-red w3-center\" style=\"padding:128px 16px\">\n");
-      out.write("            <h1 class=\"w3-margin w3-jumbo\">Set user as no longer active</h1>\n");
-      out.write("        <form action=\"InactivateUserServlet\" method=\"POST\">\n");
-      out.write("            <label>Username</label><br> \n");
-      out.write("            <input type=\"text\" name=\"username\" value=\"\" /><br>\n");
-      out.write("            <input type=\"submit\" value=\"Ok\" name=\"submit\" />\n");
-      out.write("        </form>\n");
+      out.write("            <h1 class=\"w3-margin w3-jumbo\">Your cart is empty!</h1>\n");
+      out.write("        ");
+
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().contains("id")) {
+                        Cookie eventCookie = new Cookie(cookie.getName(), "");
+                        //setting cookie to expiry in 30 mins
+                        eventCookie.setMaxAge(0);
+                        response.addCookie(eventCookie);
+
+                    }
+                    if (cookie.getName().contains("tickets")) {
+                        
+                        Cookie ticketCookie = new Cookie(cookie.getName(), "");
+                        //setting cookie to expiry in 30 mins
+                        ticketCookie.setMaxAge(0);
+                        response.addCookie(ticketCookie);
+
+                    }
+                        if (cookie.getName().contains("eventName")) {
+
+                        Cookie eventNameCookie = new Cookie(cookie.getName(), "");
+                        //setting cookie to expiry in 30 mins
+                        eventNameCookie.setMaxAge(0);
+                        response.addCookie(eventNameCookie);
+
+                    }
+                    if (cookie.getName().contains("price")) {
+
+                        Cookie priceCookie = new Cookie(cookie.getName(), "");
+                        //setting cookie to expiry in 30 mins
+                        priceCookie.setMaxAge(0);
+                        response.addCookie(priceCookie);
+
+                    }
+                }
+            }
+        
+      out.write("\n");
+      out.write("        <a href=\"eventlist.jsp\">Back to eventlist</a>\n");
       out.write("        </header>\n");
+      out.write("        \n");
       out.write("        <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
       out.write("            <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
       out.write("        </footer>\n");

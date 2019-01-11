@@ -4,7 +4,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/eventlist.jsp</file>
-            <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/cartView.jsp</file>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/customerstickets.jsp</file>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/src/java/web/LoginServlet.java</file>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/eventinactivated.jsp</file>
@@ -17,6 +16,7 @@
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/customermenu.jsp</file>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/chosenEvent.jsp</file>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/notenoughmoney.jsp</file>
+            <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/src/java/web/EventServlet.java</file>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/src/java/bean/AdminUserBean.java</file>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/newEvent.jsp</file>
             <file>file:/home/kat/Documents/course%20(copy)/CourseWeb/web/styles.css</file>

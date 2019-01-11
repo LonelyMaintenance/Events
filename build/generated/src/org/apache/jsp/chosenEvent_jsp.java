@@ -51,35 +51,36 @@ public final class chosenEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("                <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\"/>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lato\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Montserrat\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"styles.css\">\n");
-      out.write("\n");
+      out.write("        <style>\n");
+      out.write("            body,h1,h2,h3,h4,h5,h6 {font-family: \"Lato\", sans-serif}\n");
+      out.write("            .w3-bar,h1,button {font-family: \"Montserrat\", sans-serif}\n");
+      out.write("            .fa-anchor,.fa-coffee {font-size:200px}\n");
+      out.write("        </style>\n");
       out.write("        <title>Chosen Event</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("\n");
       out.write("                <div class=\"w3-top\">\n");
       out.write("        <div class=\"w3-bar w3-red w3-card w3-left-align w3-large\">\n");
       out.write("            <a class=\"w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red\" href=\"javascript:void(0);\" onclick=\"myFunction()\" title=\"Toggle Navigation Menu\"><i class=\"fa fa-bars\"></i></a>\n");
       out.write("            <a href=\"logout.jsp\" class=\"w3-bar-item w3-button w3-right w3-padding-large w3-white\">Log out</a>\n");
+      out.write("                    <a href=\"customermenu.jsp\" class=\"w3-bar-item w3-button w3-right w3-hide-small w3-padding-large w3-hover-white\">Customer Menu</a>\n");
+      out.write("\n");
       out.write("       ");
       out.write("\n");
       out.write("        </div>\n");
       out.write("    </div>\n");
       out.write("        <header class=\"w3-container w3-red w3-center\" style=\"padding:128px 16px\">\n");
-      out.write("            <h1 class=\"w3-margin w3-jumbo\">Chosen event</h1>\n");
-      out.write("        </header>\n");
-      out.write("    \n");
+      out.write("            <h1 class=\"w3-margin w3-jumbo\">Tickets</h1>\n");
       out.write("        <form method=\"post\" action=\"ChosenEventServlet\">\n");
-      out.write("            <table>\n");
+      out.write("            <table align='center'>\n");
       out.write("                <tr>\n");
       out.write("                    <td>Chosen Event</td>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("                    ");
 
                         String id = request.getParameter("id");
@@ -95,25 +96,28 @@ public final class chosenEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
                             
 
                         }
+                        /* TODO output your page here. You may use following sample code. */
 
 
                     
       out.write("\n");
       out.write("\n");
-      out.write("\n");
+      out.write("                    </tr>\n");
+      out.write("                    <tr>\n");
       out.write("                    <td>Number of tickets:</td>\n");
       out.write("                    <td><input name=\"tickets\" value=\"1\"/></td>\n");
       out.write("                </tr>\n");
-      out.write("\n");
-      out.write("                <td><input type=\"submit\" value=\"Add\" /></td>\n");
-      out.write("\n");
+      out.write("                <tr>\n");
+      out.write("                <td align='center'><input type=\"submit\" value=\"Add\" /></td>\n");
+      out.write("                </tr>\n");
       out.write("\n");
       out.write("            </table>\n");
       out.write("        </form>\n");
-      out.write("\n");
-      out.write("\n");
       out.write("        <a href=\"cartView.jsp\">View cart</a>\n");
-      out.write("\n");
+      out.write("        </header>\n");
+      out.write("        <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
+      out.write("            <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");
+      out.write("        </footer>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

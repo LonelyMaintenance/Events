@@ -1,7 +1,7 @@
 <%-- 
     Document   : eventlist
     Created on : Jan 1, 2019, 11:07:32 AM
-    Author     : nikolaj
+    Author     : nikolaj, Victor
 --%>
 
 <%@page import="web.EventList"%>
@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="styles.css">
         <title>Events</title>
     </head>
     <body>
@@ -36,7 +35,6 @@
     </div>
         <header class="w3-container w3-red w3-center" style="padding:128px 16px">
             <h1 class="w3-margin w3-jumbo">Pick an event!</h1>
-        </header>
 
         <%
 
@@ -58,7 +56,7 @@
 
 
         <a href="cartView.jsp">View cart</a><br>
-
+</header>
     <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </footer>
