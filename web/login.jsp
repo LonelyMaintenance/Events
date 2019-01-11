@@ -1,7 +1,7 @@
 <%-- 
     Document   : login
     Created on : Dec 17, 2018, 9:05:29 AM
-    Author     : nikolaj
+    Author     : nikolaj, Victor
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
