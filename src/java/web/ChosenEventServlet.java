@@ -78,6 +78,7 @@ public class ChosenEventServlet extends HttpServlet {
         String t = request.getParameter("tickets");
         String e = request.getParameter("eventName");
         String p = request.getParameter("price");
+        String d = request.getParameter("date");
 
         Cookie eventCookie = new Cookie(("id"), i);
         //setting cookie to expiry in 30 mins
@@ -98,7 +99,12 @@ public class ChosenEventServlet extends HttpServlet {
         //setting cookie to expiry in 30 mins
         priceCookie.setMaxAge(30 * 60);
         response.addCookie(priceCookie);
-                
+
+        Cookie dateCookie = new Cookie(("date" + i), d);
+        //setting cookie to expiry in 30 min
+        dateCookie.setMaxAge(30 * 60);
+        response.addCookie(dateCookie);
+        
         RequestDispatcher rd = request.getRequestDispatcher("eventlist.jsp");
         rd.forward(request, response);
 

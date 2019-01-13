@@ -57,7 +57,8 @@
                             
                             out.println("<td><input name=\"id\" value=\"" + id + "\" ></input></td><br>");
                             out.println("<td><input name=\"eventName\" value=\"" + eventName + "\" ></input></td><br>");
-                            out.println("<td><input name=\"price\" value=\"" + price + " kr \" ></input></td><br>");
+                            out.println("<td><input name=\"price\" value=\"" + price + " \" ></input></td><br>");
+                            out.println("<td><input name=\"date\" value=\"" + date + " \" ></input></td><br>");
                             
 
                         }

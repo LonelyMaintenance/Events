@@ -39,6 +39,10 @@
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
+                    if (cookie.getName().contains("date")) {
+                        out.println("<b>Date of event = " + cookie.getValue() + "<b><br>");
+
+                    }
                     if (cookie.getName().contains("id")) {
                         out.println("<b>Event = " + cookie.getValue() + "<b><br>");
 

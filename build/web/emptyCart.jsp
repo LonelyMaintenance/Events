@@ -70,6 +70,14 @@
                         response.addCookie(priceCookie);
 
                     }
+                    if (cookie.getName().contains("date")) {
+
+                        Cookie dateCookie = new Cookie(cookie.getName(), "");
+                        //setting cookie to expiry in 30 mins
+                        dateCookie.setMaxAge(0);
+                        response.addCookie(dateCookie);
+
+                    }
                 }
             }
         %>
