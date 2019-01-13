@@ -35,8 +35,8 @@
         <header class="w3-container w3-red w3-center" style="padding:128px 16px">
             <h1 class="w3-margin w3-jumbo">Set user as no longer active</h1>
         <form action="InactivateUserServlet" method="POST">
-            <label>Username</label><br> 
-            <input type="text" name="username" value="" /><br>
+            <label>Event name</label><br> 
+            <input type="text" name="email" value="" /><br>
             <input type="submit" value="Ok" name="submit" />
         </form>
         </header>
