@@ -102,6 +102,13 @@ public class EventServlet extends HttpServlet {
 
                     // request.setAttribute("login", login);
                     if (success) {
+                          MailService ms = new MailService();
+                ms.setUSER_NAME("aneventapplication@gmail.com");
+                ms.setPASSWORD("ab1234cd");
+                ms.setRECIPIENT(u);
+                ms.setSubject("Your receipt");
+                ms.setBody("You bought tickets for a value of " +price + ". View details in buyers history at Events.com/ Best regards admin at Event.com");
+                ms.sendReceipt();
                         cookies = request.getCookies();
     	if(cookies != null){
     	for(Cookie cookie : cookies){
@@ -134,6 +141,13 @@ public class EventServlet extends HttpServlet {
                         //setting cookie to expiry in 30 mins
                         eventNameCookie.setMaxAge(0);
                         response.addCookie(eventNameCookie);
+
+                    }
+                    if (cookie.getName().contains("date")) {
+                        Cookie dateCookie = new Cookie(cookie.getName(), "");
+                        //setting cookie to expiry in 30 mins
+                        dateCookie.setMaxAge(0);
+                        response.addCookie(dateCookie);
 
                     }
                     

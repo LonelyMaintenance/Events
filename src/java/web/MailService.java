@@ -8,9 +8,18 @@ public class MailService {
 
     private String USER_NAME = "";  // GMail user name (just the part before "@gmail.com")
     private String PASSWORD = ""; // GMail password
-    private String RECIPIENT = "lonelymaintenance@gmail.com";
+    private String[] RECIPIENT = new String[1];
     private String body = "";
     private String sender = "";
+    private String subject;
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
 
     public String getSender() {
         return sender;
@@ -47,9 +56,13 @@ public class MailService {
     public void sendReceipt() {
         String from = USER_NAME;
         String pass = PASSWORD;
-        String[] to = {RECIPIENT}; // list of recipient email addresses
-        String subject = String.format("Question from %s", sender);
-
+        String[] to = RECIPIENT; // list of recipient email addresses
+        if(subject==null){
+            subject = String.format("Question from %s", sender);
+        }
+        if(RECIPIENT[0]==null){
+            RECIPIENT[0] = "aneventapplication@gmail.com";
+        }
         sendFromGMail(from, pass, to, subject, body);
     }
 
@@ -91,4 +104,14 @@ public class MailService {
             me.printStackTrace();
         }
     }
+
+    public String[] getRECIPIENT() {
+        return RECIPIENT;
+    }
+
+    public void setRECIPIENT(String RECIPIENT) {
+        this.RECIPIENT[0] = RECIPIENT;
+    }
+    
+    
 }
