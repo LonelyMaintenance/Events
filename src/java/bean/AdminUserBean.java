@@ -8,10 +8,14 @@ package bean;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import web.EventList;
 
 /**
  *
@@ -22,6 +26,8 @@ public class AdminUserBean {
 
     Connection con;
     PreparedStatement stmt;
+    Statement querystmt;
+    ArrayList<String> userList;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
@@ -60,6 +66,33 @@ public class AdminUserBean {
         } catch (SQLException ex) {
         }
         }
+
+
+   public ArrayList<String> getUserListStatement() throws SQLException {
+        ArrayList<String> userList = new ArrayList<>();
+
+        try {
+            this.querystmt = con.createStatement();
+            ResultSet resultSet = querystmt.executeQuery("SELECT firstName,lastName,email FROM user;");
+            String f = "test";
+            String l = "test";
+            String e = "test";
+
+
+            while (resultSet.next()) {
+                if (resultSet != null) {
+                    f = resultSet.getString(1);
+                    l = resultSet.getString(2);
+                    e = resultSet.getString(3);
+                    userList.add(e);
+                }
+            }
+        } catch (SQLException ex) {
+            System.err.println(new java.util.Date() + " : " + ex.getMessage());
+        }
+
+        return userList;
+    }
 
     public void closeConnection() {
         try {
