@@ -79,7 +79,7 @@ public class ChosenEventServlet extends HttpServlet {
         String e = request.getParameter("eventName");
         String p = request.getParameter("price");
 
-        Cookie eventCookie = new Cookie(("id" + i), i);
+        Cookie eventCookie = new Cookie(("id"), i);
         //setting cookie to expiry in 30 mins
         eventCookie.setMaxAge(30 * 60);
         response.addCookie(eventCookie);

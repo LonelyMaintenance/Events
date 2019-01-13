@@ -87,17 +87,18 @@ public class AdminEventBean {
 
     
 
-    public ArrayList<EventList> getEventsStatement() throws SQLException {
+   public ArrayList<EventList> getEventsStatement() throws SQLException {
         ArrayList<EventList> eventList = new ArrayList<>();
-        ArrayList<String> stringList = new ArrayList<>();
 
         try {
             this.stmt = con.createStatement();
-            ResultSet resultSet = stmt.executeQuery("SELECT idEvent,eventName,price,availableSeats,isCancelled FROM event where isCancelled=0;");
+            ResultSet resultSet = stmt.executeQuery("SELECT idEvent,eventName,price,availableSeats,date,isCancelled FROM event;");
             String id = "test";
             String eventName = "test";
             String price = "test";
             String availableSeats = "test";
+            String date = "test";
+            boolean event = false;
 
             while (resultSet.next()) {
                 if (resultSet != null) {
@@ -105,8 +106,9 @@ public class AdminEventBean {
                     eventName = resultSet.getString(2);
                     price = resultSet.getString(3);
                     availableSeats = resultSet.getString(4);
-                    EventList evList = new EventList(id, eventName, price, availableSeats);
-                    stringList.add(eventName);
+                    date = resultSet.getString(5);
+                    event = resultSet.getBoolean(6);
+                    EventList evList = new EventList(id, eventName, price, availableSeats, date, event);
                     eventList.add(evList);
                 }
             }

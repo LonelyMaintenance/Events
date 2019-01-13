@@ -8,6 +8,8 @@
 <%@page import="java.io.PrintWriter"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,18 +43,21 @@
         <form method="post" action="ChosenEventServlet">
             <table align='center'>
                 <tr>
-                    <td>Chosen Event</td>
+                    <td>Event ID:</td>
                     <%
                         String id = request.getParameter("id");
                         String eventName = request.getParameter("eventName");
                         String price = request.getParameter("price");
+                        String date = request.getParameter("date");
+                        
+                        out.println("Date of event: " + date);
 
                         
                         if (id != null&&eventName != null) {
-                            out.println("<h1>Chosen number at " + id + "</h1");
-                            out.println("<td><input name=\"id\" value=\"" + id + "\" ></input></td>");
-                            out.println("<td><input name=\"eventName\" value=\"" + eventName + "\" ></input></td>");
-                            out.println("<td><input name=\"price\" value=\"" + price + "\" ></input></td>");
+                            
+                            out.println("<td><input name=\"id\" value=\"" + id + "\" ></input></td><br>");
+                            out.println("<td><input name=\"eventName\" value=\"" + eventName + "\" ></input></td><br>");
+                            out.println("<td><input name=\"price\" value=\"" + price + " kr \" ></input></td><br>");
                             
 
                         }

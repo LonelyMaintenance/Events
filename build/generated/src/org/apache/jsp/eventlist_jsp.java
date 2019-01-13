@@ -92,17 +92,25 @@ public final class eventlist_jsp extends org.apache.jasper.runtime.HttpJspBase
             List<EventList> list = event.getData();
 
             for (int i = 0; i < list.size(); i++) {
+                if(list.get(i).isIsCancelled()==true){
                 out.println("<td>");
                 out.println("<span>");
-                out.println("<a href=\"chosenEvent.jsp?eventName=" + (list.get(i).getEventName()) + "&id=" + list.get(i).getId() + "&price="+(list.get(i).getPrice())+"\">" + list.get(i).getEventName() + "</a>");
+                out.println("<a href=\"customerinfoeventcancelled.jsp\">" + String.format("[CANCELLED] "+ list.get(i).getDate() + ": "+list.get(i).getEventName()) + "</a>");
                 out.println("</span>");
-                out.println("</td><br><br>");
+                out.println("</td><br><br>");                    
+                }else{
+                out.println("<td>");
+                out.println("<span>");
+                out.println("<a href=\"chosenEvent.jsp?eventName=" + (list.get(i).getEventName()) + "&id=" + list.get(i).getId() + "&price="+(list.get(i).getPrice())+"&date="+list.get(i).getDate()+"\">" + String.format(list.get(i).getDate() +" "+ list.get(i).getEventName()) + "</a>");
+                out.println("</span>");
+                out.println("</td><br><br>");      
+                }
+
             }
 
             out.print("</option>");
         
       out.write("  \n");
-      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");

@@ -49,6 +49,8 @@ public final class chosenEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
@@ -86,13 +88,14 @@ public final class chosenEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
                         String id = request.getParameter("id");
                         String eventName = request.getParameter("eventName");
                         String price = request.getParameter("price");
+                        String date = request.getParameter("date");
 
                         
                         if (id != null&&eventName != null) {
-                            out.println("<h1>Chosen number at " + id + "</h1");
-                            out.println("<td><input name=\"id\" value=\"" + id + "\" ></input></td>");
-                            out.println("<td><input name=\"eventName\" value=\"" + eventName + "\" ></input></td>");
-                            out.println("<td><input name=\"price\" value=\"" + price + "\" ></input></td>");
+                            out.println("Date of event " + date);
+                            out.println("<td><input name=\"id\" value=\"" + id + "\" >Event ID</input></td>");
+                            out.println("<td><input name=\"eventName\" value=\"" + eventName + "\" >Event name</input></td>");
+                            out.println("<td><input name=\"price\" value=\"" + price + "\" >Price</input></td>");
                             
 
                         }
