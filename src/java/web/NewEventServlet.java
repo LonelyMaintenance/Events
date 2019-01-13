@@ -12,6 +12,7 @@ import java.util.Scanner;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,15 +51,11 @@ public class NewEventServlet extends HttpServlet {
             seats = request.getParameter("seats");
 
             if ((eventName != null && !eventName.isEmpty()) && (date != null && !date.isEmpty())) {
-                // RequestDispatcher rd = request.getRequestDispatcher("touristbooking.jsp");
-                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
-                // request.setAttribute("message", "Exchange rate ");
-                //  request.setAttribute("login", login);
-                // rd.forward(request, response);
+
                 callAdminCreateEventBean(eventName, date, location, price, seats);
-                RequestDispatcher rd = request.getRequestDispatcher("newEvent.jsp");
-                request.setAttribute("message", "New event added to database");
-                //request.setAttribute("login", login);
+                
+                RequestDispatcher rd = request.getRequestDispatcher("eventcreated.jsp");
+
                 rd.forward(request, response);
             } else {
                 RequestDispatcher rd = request.getRequestDispatcher("newEvent.jsp");
