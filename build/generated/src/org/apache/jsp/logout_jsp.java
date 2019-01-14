@@ -52,11 +52,11 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lato\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Montserrat\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
-      out.write("        <style>\n");
-      out.write("            body,h1,h2,h3,h4,h5,h6 {font-family: \"Lato\", sans-serif}\n");
-      out.write("            .w3-bar,h1,button {font-family: \"Montserrat\", sans-serif}\n");
-      out.write("            .fa-anchor,.fa-coffee {font-size:200px}\n");
-      out.write("        </style>\n");
+      out.write("                <link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">\n");
+      out.write("\n");
+      out.write("                <ul>\n");
+      out.write("            <ul><a href=\"welcomePage.jsp\">Main</a></ul>\n");
+      out.write("        </ul>\n");
       out.write("        <title>Log out</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
@@ -79,8 +79,7 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
         }
             
       out.write("\n");
-      out.write("        <a href=\"welcomePage.jsp\">Main page</a><br>\n");
-      out.write("        <a href=\"login.jsp\">Login page</a><br>\n");
+      out.write("\n");
       out.write("        </header>\n");
       out.write("        <footer class=\"w3-container w3-padding-64 w3-center w3-opacity\">  \n");
       out.write("            <p>Powered by <a href=\"https://www.w3schools.com/w3css/default.asp\" target=\"_blank\">w3.css</a></p>\n");

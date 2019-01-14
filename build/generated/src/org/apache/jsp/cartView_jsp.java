@@ -52,25 +52,17 @@ public final class cartView_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lato\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Montserrat\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
-      out.write("        <style>\n");
-      out.write("            body,h1,h2,h3,h4,h5,h6 {font-family: \"Lato\", sans-serif}\n");
-      out.write("            .w3-bar,h1,button {font-family: \"Montserrat\", sans-serif}\n");
-      out.write("            .fa-anchor,.fa-coffee {font-size:200px}\n");
-      out.write("        </style>\n");
+      out.write("                <link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">\n");
+      out.write("\n");
+      out.write("                <ul>\n");
+      out.write("            <ul><a href=\"logout.jsp\">Log out</a></ul>\n");
+      out.write("        </ul>\n");
       out.write("        <title>Cart</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
       out.write("\n");
-      out.write("                <div class=\"w3-top\">\n");
-      out.write("        <div class=\"w3-bar w3-red w3-card w3-left-align w3-large\">\n");
-      out.write("            <a class=\"w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red\" href=\"javascript:void(0);\" onclick=\"myFunction()\" title=\"Toggle Navigation Menu\"><i class=\"fa fa-bars\"></i></a>\n");
-      out.write("            <a href=\"logout.jsp\" class=\"w3-bar-item w3-button w3-right w3-padding-large w3-white\">Log out</a>\n");
-      out.write("        <a href=\"customermenu.jsp\" class=\"w3-bar-item w3-button w3-right w3-hide-small w3-padding-large w3-hover-white\">Customer Menu</a>\n");
-      out.write("       ");
       out.write("\n");
-      out.write("        </div>\n");
-      out.write("    </div>\n");
       out.write("       ");
       out.write("\n");
       out.write("        <header class=\"w3-container w3-red w3-center\" style=\"padding:128px 16px\">\n");
@@ -80,6 +72,10 @@ public final class cartView_jsp extends org.apache.jasper.runtime.HttpJspBase
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
+                    if (cookie.getName().contains("date")) {
+                        out.println("<b>Date of event = " + cookie.getValue() + "<b><br>");
+
+                    }
                     if (cookie.getName().contains("id")) {
                         out.println("<b>Event = " + cookie.getValue() + "<b><br>");
 

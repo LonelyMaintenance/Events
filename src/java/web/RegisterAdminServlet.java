@@ -56,13 +56,13 @@ public class RegisterAdminServlet extends HttpServlet {
                 // rd.forward(request, response);           callAdminCreateEventBean(eventName, date, location, price, seats);
 
                 callAdminCreateAdminBean(firstName, lastName, email, password);
-                RequestDispatcher rd = request.getRequestDispatcher("registerAdmin.jsp");
-                request.setAttribute("message", "New admin is added");
+                RequestDispatcher rd = request.getRequestDispatcher("youareregistered.jsp");
+              //  request.setAttribute("message", "New admin is added");
                 //request.setAttribute("login", login);
                 rd.forward(request, response);
             } else {
-                RequestDispatcher rd = request.getRequestDispatcher("registerAdmin.jsp");
-                request.setAttribute("message", "Please insert all values");
+                RequestDispatcher rd = request.getRequestDispatcher("usernotregistered.jsp");
+              //  request.setAttribute("message", "Please insert all values");
                 //request.setAttribute("login", login);
                 rd.forward(request, response);
             }

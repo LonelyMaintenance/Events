@@ -86,6 +86,7 @@ public class EventServlet extends HttpServlet {
             //this.login = (String)request.getAttribute("login");
             if (s != null) {
                 int indexE = Integer.valueOf(s);
+                indexE= indexE-1;
                 EventList eL = list.get(indexE);
                 int numberOfTickets = Integer.valueOf(t);
 

@@ -56,13 +56,13 @@ public class RegisterCustomerServlet extends HttpServlet {
                 // rd.forward(request, response);           callAdminCreateEventBean(eventName, date, location, price, seats);
 
                 callAdminCreateCustomerBean(firstName, lastName, email, password);
-                RequestDispatcher rd = request.getRequestDispatcher("registerCustomer.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("youareregistered.jsp");
                 request.setAttribute("message", "You are registered");
                 //request.setAttribute("login", login);
                 rd.forward(request, response);
             } else {
-                RequestDispatcher rd = request.getRequestDispatcher("registerCustomer.jsp");
-                request.setAttribute("message", "Please insert all values");
+                RequestDispatcher rd = request.getRequestDispatcher("usernotregistered.jsp");
+                //request.setAttribute("message", "Please insert all values");
                 //request.setAttribute("login", login);
                 rd.forward(request, response);
             }

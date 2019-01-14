@@ -45,7 +45,7 @@ public class LoginBean {
 
         try {
             this.stmt = con.createStatement();
-            ResultSet resultSet = stmt.executeQuery("SELECT password from user where email='" + email + "';");
+            ResultSet resultSet = stmt.executeQuery("SELECT password from user where email='" + email + "' and isInactive=0;");
 
             while (resultSet.next()) {
                 if (resultSet != null) {
