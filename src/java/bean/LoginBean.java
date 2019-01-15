@@ -33,7 +33,11 @@ public class LoginBean {
             Class.forName("com.mysql.jdbc.Driver");
             this.con = DriverManager.getConnection("jdbc:mysql://localhost/eventDb?autoReconnect=true&useSSL=false", "root", "root");
         } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+
         } catch (SQLException ex) {
+            ex.printStackTrace();
+
         }
     }
 //Hämtar uppgift från db för att se om angivet användarnamn och lösenord matchar databas, för tillåtelse att logga in

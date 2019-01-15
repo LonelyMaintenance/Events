@@ -34,7 +34,11 @@ public class AdminUserBean {
             Class.forName("com.mysql.jdbc.Driver");
             this.con = DriverManager.getConnection("jdbc:mysql://localhost/eventDb?autoReconnect=true&useSSL=false", "root", "root");
         } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+
         } catch (SQLException ex) {
+            ex.printStackTrace();
+
         }
     }
 
@@ -51,6 +55,8 @@ public class AdminUserBean {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
+            ex.printStackTrace();
+
         }
     }
     //Skickar order om att markera användare som avregistrerad i db
@@ -98,6 +104,8 @@ public class AdminUserBean {
             stmt.close();
             con.close();
         } catch (SQLException ex) {
+            ex.printStackTrace();
+
         }
     }
 }

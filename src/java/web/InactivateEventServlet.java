@@ -1,5 +1,5 @@
 /*
-doPost-method used for registering a cancelling of an event
+doPost-metod används för att registrera ett event som inställt
  */
 package web;
 

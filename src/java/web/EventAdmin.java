@@ -25,13 +25,12 @@ public class EventAdmin {
 
     public static void main(String[] args) throws SQLException {
         EventAdmin ea = new EventAdmin();
-        //ea.callAdminCreateEventBean();
         ea.getEventList();
     }
 
     private void callAdminCreateEventBean() {
         s = new Scanner(System.in);
-        AdminEventBean adb = new AdminEventBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        AdminEventBean adb = new AdminEventBean(); 
         adb.init();
         System.out.println("Enter event name");
         String eventName = s.nextLine();
@@ -48,7 +47,7 @@ public class EventAdmin {
     }
 
     public void getEventList() throws SQLException {
-        AdminEventBean adb = new AdminEventBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        AdminEventBean adb = new AdminEventBean(); 
         adb.init();
         ArrayList<EventList> eventList = adb.getEventsStatement();
         for (int i = 0; i < eventList.size(); i++) {
