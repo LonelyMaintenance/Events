@@ -17,6 +17,7 @@ Description of file: Sida för att lägga till nytt event. Namn, datum, plats, p
 
                 <ul>
             <ul><a href="logout.jsp">Log out</a></ul>
+            <ul><a href="adminmenu.jsp">Menu</a></ul>            
         </ul>
         <title>New Event</title>
     </head>

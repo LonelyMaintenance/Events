@@ -16,7 +16,9 @@ Description of file: Kundvagn - länkar för köp och visning av sparade varor i
 
                 <ul>
             <ul><a href="logout.jsp">Log out</a></ul>
-        </ul>
+            <ul><a href="customermenu.jsp">Menu</a></ul>
+
+                </ul>
         <title>Cart</title>
     </head>
     <body>

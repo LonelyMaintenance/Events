@@ -17,6 +17,8 @@ Description of file: Sida för att avregistrera användare - admin anger e-posta
 
                 <ul>
             <ul><a href="logout.jsp">Log out</a></ul>
+            <ul><a href="adminmenu.jsp">Menu</a></ul>            
+
         </ul>
         <title>Inactivate User</title>
     </head>

@@ -17,7 +17,9 @@ Description of file: Sida för att ställa in event - användaren skriver in nam
 
                 <ul>
             <ul><a href="logout.jsp">Log out</a></ul>
-        </ul>
+            <ul><a href="adminmenu.jsp">Menu</a></ul>            
+
+                </ul>
         <title>Inactivate Event</title>
     </head>
     <body>

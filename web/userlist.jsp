@@ -18,6 +18,8 @@ Description of file: Sida som printar ut alla användare från db (via bean)
 
                 <ul>
             <ul><a href="logout.jsp">Log out</a></ul>
+            <ul><a href="adminmenu.jsp">Menu</a></ul>
+            
         </ul>
         <title>List of users</title>
     </head>

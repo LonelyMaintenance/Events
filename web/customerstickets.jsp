@@ -19,6 +19,7 @@ Description of file: Visar användares köphistorik
 
                 <ul>
             <ul><a href="logout.jsp">Log out</a></ul>
+            <ul><a href="customermenu.jsp">Menu</a></ul>
         </ul>
         <title>Ticket history</title>
     </head>
