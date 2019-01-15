@@ -1,7 +1,5 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Test-fil för att prova koppling till webbtjänst MyGift
  */
 package web;
 
@@ -18,11 +16,9 @@ public class WSTester {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException_Exception, SQLException {
-        // TODO code application logic here
-        // System.out.println("Course days " + getWeekDays("DA374A"));
+
         System.out.println(getAccountValue("nikolaj.mansson@gmail.com"));
-        //  System.out.println(pay1("nikolaj.mansson@gmail.com", "100"));
-        // System.out.println(pay("nikolaj.mansson@gmail.com", "100"));
+
 
     }
 

@@ -1,7 +1,5 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Test-fil för att prova metoder gällande hantering av konto i db (via bean)
  */
 package web;
 
@@ -29,14 +27,13 @@ public class UserAdmin {
     public static void main(String[] args) {
         UserAdmin ea = new UserAdmin();
 
-        //ea.callAdminCreateCustomerBean();
-        //ea.callAdminCreateAdminBean();
+
         ea.checkGivenPassword("jonas@gmail.com", "1234");
     }
 
     private void callAdminCreateCustomerBean() {
         s = new Scanner(System.in);
-        AdminUserBean adb = new AdminUserBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        AdminUserBean adb = new AdminUserBean(); 
         adb.init();
         System.out.println("Enter first name");
         String firstName = s.nextLine();
@@ -53,7 +50,7 @@ public class UserAdmin {
 
     private void callAdminCreateAdminBean() {
         s = new Scanner(System.in);
-        AdminUserBean adb = new AdminUserBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        AdminUserBean adb = new AdminUserBean(); 
         adb.init();
         System.out.println("Enter first name");
         String firstName = s.nextLine();
@@ -70,7 +67,7 @@ public class UserAdmin {
 
     private void checkGivenPassword(String email, String password) {
 
-        LoginBean lb = new LoginBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        LoginBean lb = new LoginBean();
         lb.init();
         boolean check = lb.checkPassword(email, password);
         if (check == true) {

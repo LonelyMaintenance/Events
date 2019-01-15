@@ -1,7 +1,6 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Tar emot förfrågan från jsp att skapa ny admin, hämtar uppgifter från denna
+och registrerar i db via bean
  */
 package web;
 
@@ -49,21 +48,14 @@ public class RegisterAdminServlet extends HttpServlet {
             password = request.getParameter("password");
 
             if ((email != null && !email.isEmpty()) && (password != null && !password.isEmpty())) {
-                // RequestDispatcher rd = request.getRequestDispatcher("touristbooking.jsp");
-                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
-                // request.setAttribute("message", "Exchange rate ");
-                //  request.setAttribute("login", login);
-                // rd.forward(request, response);           callAdminCreateEventBean(eventName, date, location, price, seats);
 
                 callAdminCreateAdminBean(firstName, lastName, email, password);
                 RequestDispatcher rd = request.getRequestDispatcher("youareregistered.jsp");
-              //  request.setAttribute("message", "New admin is added");
-                //request.setAttribute("login", login);
+
                 rd.forward(request, response);
             } else {
                 RequestDispatcher rd = request.getRequestDispatcher("usernotregistered.jsp");
-              //  request.setAttribute("message", "Please insert all values");
-                //request.setAttribute("login", login);
+
                 rd.forward(request, response);
             }
         }

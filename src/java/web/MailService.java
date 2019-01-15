@@ -1,3 +1,10 @@
+/*
+Används som epost-tjänst: skickar kvitton och kundtjänstfrågor
+Källa: Inspirerad av instruktioner från
+https://stackoverflow.com/questions/46663/how-can-i-send-an-email-by-java-application-using-gmail-yahoo-or-hotmail
+
+*/
+
 package web;
 
 import java.util.*;
@@ -6,8 +13,8 @@ import javax.mail.internet.*;
 
 public class MailService {
 
-    private String USER_NAME = "";  // GMail user name (just the part before "@gmail.com")
-    private String PASSWORD = ""; // GMail password
+    private String USER_NAME = "";  
+    private String PASSWORD = ""; 
     private String[] RECIPIENT = new String[1];
     private String body = "";
     private String sender = "";
@@ -56,7 +63,7 @@ public class MailService {
     public void sendReceipt() {
         String from = USER_NAME;
         String pass = PASSWORD;
-        String[] to = RECIPIENT; // list of recipient email addresses
+        String[] to = RECIPIENT; 
         if(subject==null){
             subject = String.format("Question from %s", sender);
         }
@@ -83,7 +90,7 @@ public class MailService {
             message.setFrom(new InternetAddress(from));
             InternetAddress[] toAddress = new InternetAddress[to.length];
 
-            // To get the array of addresses
+         
             for (int i = 0; i < to.length; i++) {
                 toAddress[i] = new InternetAddress(to[i]);
             }

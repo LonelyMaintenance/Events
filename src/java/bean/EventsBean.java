@@ -1,7 +1,6 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Hanterar hämtning av lista över alla event som finns registrerade i db, via AdminEventBean.
+Denna bean är till för att processa användarens val.
  */
 package bean;
 
@@ -20,9 +19,9 @@ import web.EventList;
 @SessionScoped
 public class EventsBean implements Serializable {
 
-    private List<EventList> data; // todo list data
-    private String event; // the currently selected item value
-    private String msg; // status message
+    private List<EventList> data; 
+    private String event; 
+    private String msg; 
     EventList e;
     ArrayList<EventList> eventList;
     String chosen;
@@ -31,25 +30,19 @@ public class EventsBean implements Serializable {
 
         this.eventList = getEventList();
         loadData();
-        // select the first item in the list
+        // initierar med att peka på första objekt i listan
         this.e = data.get(0);
         setEvent(e.getEventName());
         setMessage(e.getEventName() + " selected.");
     }
 
     private void loadData() {
-        /*
-        data = new ArrayList<>();
-        ArrayList<String> eventList = getEventList();
-        for(int i = 0; i < eventList.size(); i++){
-        Event e = new Event(eventList.get(i), String.format("%s description", eventList.get(i)));
-        data.add(e);
-        }*/
+
 
         data = new ArrayList<>();
 
         for (int i = 0; i < eventList.size(); i++) {
-            //    Event e = new Event(eventList.get(i).getEventName(), String.format("%s description", eventList.get(i)));
+ 
             data.add(eventList.get(i));
         }
         
@@ -67,7 +60,6 @@ public class EventsBean implements Serializable {
         this.event = t;
     }
 
-    // value change listener for list item selection
     public void valueChanged(ValueChangeEvent v) {
         this.chosen = (String) v.getNewValue();
         setMessage(chosen + " selected.");
@@ -86,8 +78,9 @@ public class EventsBean implements Serializable {
         return msg;
     }
 
+    //Hämtar lista över alla användare från db via AdminEventBean
     public ArrayList<EventList> getEventList() throws SQLException {
-        AdminEventBean adb = new AdminEventBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        AdminEventBean adb = new AdminEventBean(); 
         adb.init();
         ArrayList<EventList> eventList = adb.getEventsStatement();
         for (int i = 0; i < eventList.size(); i++) {

@@ -1,7 +1,6 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Order till db gällande användare. Se beskrivning över varje metod för detaljer
+
  */
 package bean;
 
@@ -29,9 +28,7 @@ public class AdminUserBean {
     Statement querystmt;
     ArrayList<String> userList;
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-    //In the real world, this method should have madtoe a call to database objects to query data
+//Initierar JDBC-driver
     public void init() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -41,6 +38,7 @@ public class AdminUserBean {
         }
     }
 
+    //Skickar order till db om att lägga till ny användare
     public void insertStatement(String firstName, String lastName, String email, String password, boolean isAdmin, boolean isInactive) {
         try {
             this.stmt = (PreparedStatement) con.prepareStatement("INSERT INTO user(firstName, lastName, email, password, isAdmin, isInactive)VALUES(?, ?, ?, ?, ?, ?);");
@@ -55,7 +53,7 @@ public class AdminUserBean {
         } catch (SQLException ex) {
         }
     }
-    
+    //Skickar order om att markera användare som avregistrerad i db
         public void cancelUserStatement(String email) {
         try {
             this.stmt = (PreparedStatement) con.prepareStatement("UPDATE user SET isInactive=1 WHERE email=?;");
@@ -64,10 +62,11 @@ public class AdminUserBean {
             stmt.close();
             con.close();
         } catch (SQLException ex) {
+            System.out.println("Exception thrown updating user");
         }
         }
 
-
+//Hämtar lista över alla användare
    public ArrayList<String> getUserListStatement() throws SQLException {
         ArrayList<String> userList = new ArrayList<>();
 
@@ -93,7 +92,7 @@ public class AdminUserBean {
 
         return userList;
     }
-
+//Stänger uppkoppling till db
     public void closeConnection() {
         try {
             stmt.close();

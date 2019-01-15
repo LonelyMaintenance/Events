@@ -2,6 +2,9 @@
     Document   : inactivateevent
     Created on : Jan 10, 2019, 9:32:25 AM
     Author     : nikolaj, Victor
+
+Description of file: Sida för att ställa in event - användaren skriver in namnet på det event som ska ställas in
+
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,10 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
                 <link rel="stylesheet" type="text/css" href="styles.css">
 
                 <ul>
@@ -22,16 +22,14 @@
     </head>
     <body>
 
-        <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-            <h1 class="w3-margin w3-jumbo">Cancel Event</h1>
+        <header>
+            <h1>Cancel Event</h1>
         <form action="InactivateEventServlet" method="POST">
             <label>Event name</label><br> 
             <input type="text" name="eventName" value="" /><br>
             <input type="submit" value="Ok" name="submit" />
         </form>
         </header>
-        <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-        </footer>
+
     </body>
 </html>

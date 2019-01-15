@@ -1,7 +1,6 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Inloggning som kontrollerar att password stämmer mot email, att användaren inte
+är avregistrerad, samt om användaren ska loggas in som kund eller admin
  */
 package web;
 
@@ -36,7 +35,6 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             String login = null;
             login = request.getParameter("login");
             String password = null;
@@ -45,8 +43,7 @@ public class LoginServlet extends HttpServlet {
             boolean admin = checkIfAdmin(login);
             if ((login != null && !login.isEmpty()) && (password != null && !password.isEmpty()) && check == true && admin == false) {
                 RequestDispatcher rd = request.getRequestDispatcher("customermenu.jsp");
-                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
-                // request.setAttribute("message", "Exchange rate ");
+
                 request.setAttribute("login", login);
                 request.setAttribute("message", "You are logged in");
                 Cookie loginCookie = new Cookie(("user"), login);
@@ -57,8 +54,7 @@ public class LoginServlet extends HttpServlet {
                 rd.forward(request, response);
             } else if((login != null && !login.isEmpty()) && (password != null && !password.isEmpty()) && check == true && admin == true){
                                 RequestDispatcher rd = request.getRequestDispatcher("adminmenu.jsp");
-                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
-                // request.setAttribute("message", "Exchange rate ");
+
                 request.setAttribute("login", login);
                 request.setAttribute("message", "You are logged in");
                 Cookie loginCookie = new Cookie(("user"), login);

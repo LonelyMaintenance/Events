@@ -1,7 +1,7 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Får order från jsp att skapa ett nytt kundkonto, 
+hämtar data från jsp,
+skickar vidare data för att skapa konto i db via bean.
  */
 package web;
 
@@ -37,7 +37,6 @@ public class RegisterCustomerServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             String firstName = null;
             String lastName = null;
             String email = null;
@@ -49,21 +48,14 @@ public class RegisterCustomerServlet extends HttpServlet {
             password = request.getParameter("password");
 
             if ((email != null && !email.isEmpty()) && (password != null && !password.isEmpty())) {
-                // RequestDispatcher rd = request.getRequestDispatcher("touristbooking.jsp");
-                // RequestDispatcher rdServlet = request.getRequestDispatcher("BookTripFormHandler");
-                // request.setAttribute("message", "Exchange rate ");
-                //  request.setAttribute("login", login);
-                // rd.forward(request, response);           callAdminCreateEventBean(eventName, date, location, price, seats);
 
                 callAdminCreateCustomerBean(firstName, lastName, email, password);
                 RequestDispatcher rd = request.getRequestDispatcher("youareregistered.jsp");
                 request.setAttribute("message", "You are registered");
-                //request.setAttribute("login", login);
                 rd.forward(request, response);
             } else {
                 RequestDispatcher rd = request.getRequestDispatcher("usernotregistered.jsp");
-                //request.setAttribute("message", "Please insert all values");
-                //request.setAttribute("login", login);
+
                 rd.forward(request, response);
             }
         }
@@ -110,7 +102,7 @@ public class RegisterCustomerServlet extends HttpServlet {
 
     private void callAdminCreateCustomerBean(String firstName, String lastName, String email, String password) {
 
-        AdminUserBean adb = new AdminUserBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        AdminUserBean adb = new AdminUserBean(); 
         adb.init();
         adb.insertStatement(firstName, lastName, email, password, false, false);
         adb.closeConnection();

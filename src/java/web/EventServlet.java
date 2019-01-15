@@ -1,7 +1,10 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Genomför köp av biljetter.
+Hämtar beställda biljetter från kundvagn (cookies).
+Kollar att det finns pengar på presentkort under användarens epost- på MyGifts:webbtjänst.
+Drar ifrån pengar i MyGifts databas, under användarens konto.
+Skickar kvitto via mail till användare.
+Tömmer kundvagn (cookies) från events.
  */
 package web;
 
@@ -83,7 +86,6 @@ public class EventServlet extends HttpServlet {
                     }
                 }
              
-            //this.login = (String)request.getAttribute("login");
             if (s != null) {
                 int indexE = Integer.valueOf(s);
                 indexE= indexE-1;
@@ -99,9 +101,7 @@ public class EventServlet extends HttpServlet {
                     AdminEventBean aeb = new AdminEventBean();
                     aeb.init();
                     aeb.buyStatement(u, eL.id, t);
-                    // aeb.closeConnection();
 
-                    // request.setAttribute("login", login);
                     if (success) {
                           MailService ms = new MailService();
                 ms.setUSER_NAME("aneventapplication@gmail.com");
@@ -170,14 +170,10 @@ public class EventServlet extends HttpServlet {
                     
                     rf.forward(request, response);
                 }
-                //      out.println("Selected Event is : "+list.get(Integer.valueOf(s)).getName());
 
             }
         }
 
-        /* TODO output your page here. You may use following sample code. */
-        //   out.println(t);
-        //  out.println(login);
         } catch (SQLException ex) {
             Logger.getLogger(EventServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException_Exception ex) {
@@ -190,7 +186,7 @@ public class EventServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
     private static Boolean pay(String email, String eventCost) throws SQLException_Exception {
         gc.GiftCardWebService_Service service = new gc.GiftCardWebService_Service();

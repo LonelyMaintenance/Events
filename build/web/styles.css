@@ -1,16 +1,17 @@
-            body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-            .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+           body,h1,h2,h3,h4,h5,h6 {font-family: "Arial", sans-serif}
+            h1,button {font-family: "Arial", sans-serif}
                         body,h1,h2,h3,h4,h5,h6 {text-align: center}
+                        
+                        h1{
+                            color: white;
+                        }
 
-            .fa-anchor,.fa-coffee {font-size:200px}
             header {
                 margin-top: 0;
                 padding:128px 16px;
                 text-align: center;
-                background-color: darkorange;
-                                text-color: white;
+                background-color: #81d4bd;
 
-                
             }
             ul{
                 display:flex;
@@ -22,9 +23,15 @@
             li{
                 margin:0 1em;
             }
+
             a{
                 text-decoration: none;
+            }
+            a:link{
+                color:black;
             }
             a:visited{
                 color:black;
             }
+            
+    

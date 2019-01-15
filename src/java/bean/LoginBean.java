@@ -1,7 +1,5 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Hanterar inloggning till tjänst, via kontroll i db. Se beskrivning över metoder för detaljer.
  */
 package bean;
 
@@ -19,7 +17,7 @@ import javax.ejb.Stateless;
 
 /**
  *
- * @author meda
+ * @author nikolaj
  */
 @Stateless
 public class LoginBean {
@@ -28,10 +26,8 @@ public class LoginBean {
     Statement stmt;
     String correctPassword = null;
     boolean isAdmin = false;
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
 
-    //In the real world, this method should have madtoe a call to database objects to query data
+    //Initierar JDBC-driver
     public void init() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -40,7 +36,7 @@ public class LoginBean {
         } catch (SQLException ex) {
         }
     }
-
+//Hämtar uppgift från db för att se om angivet användarnamn och lösenord matchar databas, för tillåtelse att logga in
     public boolean checkPassword(String email, String password) {
 
         try {
@@ -61,6 +57,8 @@ public class LoginBean {
         }
         return false;
     }
+    
+    //Kollar om användare som försöker logga in är admin
     public boolean checkIfAdmin(String email) {
 
         try {
@@ -84,7 +82,7 @@ public class LoginBean {
     }
     
 
-
+//Stänger uppkoppling till db
     public void closeConnection() {
         try {
             stmt.close();

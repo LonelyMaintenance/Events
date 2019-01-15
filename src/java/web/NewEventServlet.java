@@ -1,7 +1,6 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Får uppgifter till nytt event från jsp, och skickar uppgifter vidare till bean
+för att det nya eventet ska skickas in i db
  */
 package web;
 
@@ -60,7 +59,6 @@ public class NewEventServlet extends HttpServlet {
             } else {
                 RequestDispatcher rd = request.getRequestDispatcher("newEvent.jsp");
                 request.setAttribute("message", "Please insert all values");
-                //request.setAttribute("login", login);
                 rd.forward(request, response);
             }
         }
@@ -106,9 +104,9 @@ public class NewEventServlet extends HttpServlet {
     }// </editor-fold>
 
     private void callAdminCreateEventBean(String eventName, String date, String location, String price, String seats) {
-        AdminEventBean adb = new AdminEventBean(); //(TeacherInforRemRemote) Naming.lookup ("ava:global/CourseEJB/beans/TeacherInfoRem");
+        AdminEventBean adb = new AdminEventBean(); 
         adb.init();
         adb.insertStatement(eventName, date, location, Float.valueOf(price), Integer.valueOf(seats));
-        //adb.closeConnection();
+  
     }
 }

@@ -1,7 +1,5 @@
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+Order till db gällande event. Se beskrivning över varje metod för detaljer
  */
 package bean;
 
@@ -28,9 +26,7 @@ public class AdminEventBean {
     PreparedStatement preStmt;
     Statement stmt;
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-    //In the real world, this method should have madtoe a call to database objects to query data
+//Initierar jdbc-driver
     public void init() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -40,6 +36,7 @@ public class AdminEventBean {
         }
     }
 
+    //Skickar order till db om att registrera köp av biljett
     public void buyStatement(String email, String eventId, String seats) {
         try {
             int s = Integer.valueOf(seats);
@@ -59,6 +56,7 @@ public class AdminEventBean {
         }
     }
 
+    //Skickar order till db om att lägga till nytt event
     public void insertStatement(String eventName, String date, String location, float price, int seats) {
         try {
             this.preStmt = (PreparedStatement) con.prepareStatement("INSERT INTO event(eventName, date, location, price, availableSeats)VALUES(?, ?, ?, ?, ?);");
@@ -74,6 +72,7 @@ public class AdminEventBean {
         }
     }
     
+    //Skickar meddelande till db om att registrera event som inställt
     public void cancelEventStatement(String eventName) {
         try {
             this.preStmt = (PreparedStatement) con.prepareStatement("UPDATE event SET isCancelled=1 WHERE eventName=?;");
@@ -86,7 +85,7 @@ public class AdminEventBean {
     }
 
     
-
+//Hämtar alla event på sidan från db
    public ArrayList<EventList> getEventsStatement() throws SQLException {
         ArrayList<EventList> eventList = new ArrayList<>();
 
@@ -119,6 +118,7 @@ public class AdminEventBean {
         return eventList;
     }
 
+   //Hämtar köphistorik från db
     public ArrayList<String> getPurchaseHistory(String email) throws SQLException {
         ArrayList<String> ticketList = new ArrayList<>();
 
@@ -144,6 +144,7 @@ public class AdminEventBean {
 
         return ticketList;
     }
+    //Stänger uppkoppling till db
     public void closeConnection() {
         try {
             stmt.close();
